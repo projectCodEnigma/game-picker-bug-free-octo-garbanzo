@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Random Game Picker Generator by Zelhan</title>
+        <meta name="description" content="Discover your next favorite game with the Random Game Picker Generator by Zelhan. Choose from all major consoles and genres, perfect for casual gamers or streamers looking to pick games on the go.">
+        <meta name="keywords" content="random game picker generator, game picker for streamers, casual game picker tool, random console game selector, game generator by genre, streaming game selector tool, PS5 random game generator, PC game genre picker, Xbox game picker tool, Nintendo Switch game selector, retro console game generator, gaming randomizer for streaming, pick a game to play generator, best games picker for consoles">
+        <meta name="author" content="Zelhan">
+        <meta name="robots" content="index, follow">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    
+<body>
+    <header>
+        <center><h1>Random Game Picker Generator</h1>
+        <h2>by Zelhan</h2></center>
+    </header>
+    <main>
+        <label for="console">Select Console:</label>
+        <select id="console">
+            <option value="PlayStation">PlayStation</option>
+            <option value="PS2">PS2</option>
+            <option value="PS3">PS3</option>
+            <option value="PS4">PS4</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Nintendo Switch">Nintendo Switch</option>
+            <option value="NES">NES</option>
+            <option value="SNES">SNES</option>
+            <option value="PC">PC</option>
+            <option value="Retro">Retro Consoles</option>
+        </select>
+
+        <label for="genre">Select Genre:</label>
+        <select id="genre">
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="RPG">RPG</option>
+            <option value="Horror">Horror</option>
+            <option value="Sports">Sports</option>
+        </select>
+
+        <button id="generate">Generate Random Game</button>
+
+        <div class="result" id="result">
+            <p>Select a console and genre, then click "Generate" to see a game suggestion.</p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

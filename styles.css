@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #FFBF00; /* Amber color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px #FF8000; /* Amber glow effect */
+}
+
+main {
+    background-color: #111;
+    padding: 20px;
+    border: 3px solid #FFBF00; /* Amber border */
+    border-radius: 8px;
+    box-shadow: 0 0 10px #FF8000; /* Amber glow */
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+select, button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #222;
+    color: #FFBF00; /* Amber text color */
+    border: 2px solid #FFBF00; /* Amber border */
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #FFBF00; /* Amber background on hover */
+    color: #111;
+    transform: scale(1.05);
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #222;
+    border: 2px solid #FFBF00; /* Amber border */
+    border-radius: 5px;
+    color: #FFBF00; /* Amber text color */
+    font-size: 1em;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 0 0 10px #FF8000; /* Amber glow */
+}
