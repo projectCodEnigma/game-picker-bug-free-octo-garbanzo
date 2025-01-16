@@ -71,3 +71,14 @@ button:hover {
     font-family: 'Press Start 2P', cursive;
     box-shadow: 0 0 10px #FF8000; /* Amber glow */
 }
+.feedback a {
+    color: #007bff; /* A soft blue color, suitable for modern web apps */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease-in-out; /* Smooth color change effect */
+}
+
+.feedback a:hover {
+    color: #0056b3; /* Darker blue on hover for a nice effect */
+    text-decoration: underline; /* Underline on hover for accessibility */
+}
+
