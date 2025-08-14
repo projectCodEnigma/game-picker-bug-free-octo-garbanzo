@@ -36,6 +36,19 @@ function mergeGames(base, extra) {
 	if (!extra) return base;
 	const merged = { ...base };
 	for (const platform of Object.keys(extra)) {
+		// Wildcard: apply extras to every existing platform
+		if (platform === "*") {
+			for (const targetPlatform of Object.keys(merged)) {
+				for (const genre of Object.keys(extra[platform])) {
+					const extraList = extra[platform][genre] || [];
+					const baseList = merged[targetPlatform][genre] || [];
+					const set = new Set([...baseList, ...extraList]);
+					merged[targetPlatform][genre] = Array.from(set);
+				}
+			}
+			continue;
+		}
+
 		if (!merged[platform]) {
 			merged[platform] = extra[platform];
 			continue;
@@ -83,13 +96,13 @@ function pickRandom(array) {
 		consoleSelect.addEventListener("change", updateGenres);
 		updateGenres();
 
-		document.getElementById("generate").addEventListener("click", () => {
+document.getElementById("generate").addEventListener("click", () => {
 			const selectedConsole = consoleSelect.value;
 			const selectedGenre = genreSelect.value;
 			const list = (games[selectedConsole] || {})[selectedGenre] || [];
 			if (list.length > 0) {
 				resultEl.innerHTML = `<h3>Suggested Game:</h3><p>${pickRandom(list)}</p>`;
-			} else {
+    } else {
 				resultEl.textContent = "No games available for this selection.";
 			}
 		});

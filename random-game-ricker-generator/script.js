@@ -36,6 +36,19 @@ function mergeGames(base, extra) {
 	if (!extra) return base;
 	const merged = { ...base };
 	for (const platform of Object.keys(extra)) {
+		// Wildcard: apply extras to every existing platform
+		if (platform === "*") {
+			for (const targetPlatform of Object.keys(merged)) {
+				for (const genre of Object.keys(extra[platform])) {
+					const extraList = extra[platform][genre] || [];
+					const baseList = merged[targetPlatform][genre] || [];
+					const set = new Set([...baseList, ...extraList]);
+					merged[targetPlatform][genre] = Array.from(set);
+				}
+			}
+			continue;
+		}
+
 		if (!merged[platform]) {
 			merged[platform] = extra[platform];
 			continue;

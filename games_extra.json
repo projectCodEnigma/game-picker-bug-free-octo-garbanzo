@@ -16,7 +16,7 @@
 			"EA Sports FC 24", "FIFA 23", "NBA 2K24", "NBA 2K23", "Madden NFL 24", "MLB The Show 24", "WRC (2023)", "Gran Turismo 7", "F1 24", "F1 23", "Tony Hawk's Pro Skater 1+2 (PS5)", "PGA Tour 2K23", "NHL 24", "Riders Republic", "The Crew Motorfest", "Hot Wheels Unleashed 2", "WWE 2K24", "UFC 5", "eFootball 2024", "Tour de France 2024"
 		]
 	},
-	"PC (Steam)": {
+    "PC (Steam)": {
 		"Action": [
 			"Helldivers 2", "Remnant II", "Hades II (Early Access)", "Dave the Diver", "Deep Rock Galactic", "Risk of Rain Returns", "Vampire Survivors", "ULTRAKILL", "Prodeus", "Gunfire Reborn", "Neon White", "Katana ZERO", "Hotline Miami Collection", "My Friend Pedro", "Ghostrunner 2", "Bright Memory: Infinite", "Apex Legends", "Counter-Strike 2", "PUBG: Battlegrounds", "Warframe"
 		],
@@ -31,8 +31,25 @@
 		],
 		"Sports": [
 			"EA Sports FC 24", "FIFA 23", "NBA 2K24", "NBA 2K23", "Madden NFL 24", "eFootball 2024", "F1 24", "F1 23", "PGA Tour 2K23", "The Finals", "Rocket League", "Trackmania", "Forza Horizon 5", "Hot Wheels Unleashed 2", "Session", "Skater XL", "Riders Republic", "Descenders", "WRC (2023)", "MotoGP 24"
-		]
-	}
+        ]
+    },
+    "*": {
+        "Action": [
+            "Control: Ultimate Edition", "Hi-Fi RUSH", "Neon White", "Ghostrunner", "A Plague Tale: Requiem", "It Takes Two", "Blasphemous 2", "Hollow Knight: Silksong", "Prince of Persia: The Lost Crown", "Trek to Yomi"
+        ],
+        "Adventure": [
+            "Oxenfree II: Lost Signals", "Sea of Stars", "Chicory: A Colorful Tale", "The Talos Principle 2", "Lake", "Dordogne", "Sable", "Planet of Lana", "Eastshade", "Slay the Princess"
+        ],
+        "RPG": [
+            "Sea of Stars", "Starfield", "Like a Dragon: Ishin!", "Final Fantasy XVI", "Octopath Traveler II", "Granblue Fantasy: Relink", "Lies of P", "Wasteland 3", "Eiyuden Chronicle: Rising", "Dragon's Dogma 2"
+        ],
+        "Horror": [
+            "Amnesia: The Bunker", "Resident Evil 4 Remake", "Dead Space Remake", "MADiSON", "World of Horror", "The Mortuary Assistant", "Signalis", "Layers of Fear (2023)", "The Outlast Trials", "Lethal Company"
+        ],
+        "Sports": [
+            "EA Sports FC 24", "NBA 2K24", "F1 24", "The Crew Motorfest", "Hot Wheels Unleashed 2", "WRC (2023)", "PGA Tour 2K23", "The Finals", "Trackmania", "MotoGP 24"
+        ]
+    }
 }
 
 
