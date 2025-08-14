@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Random Game Picker Generator - Versions</title>
+        <meta name="robots" content="index, follow">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <header class="w-full bg-black/70 backdrop-blur border-b border-amber-500">
+            <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between text-amber-400">
+                <a href="/" class="flex items-center gap-2 hover:text-amber-300">
+                    <span aria-hidden="true">←</span>
+                    <span class="sr-only">Back</span>
+                    <span class="font-bold">Random Game Picker</span>
+                </a>
+                <nav class="flex items-center gap-4 text-sm">
+                    <a href="index.html" class="hover:text-amber-300">Tool</a>
+                    <span class="ml-2 inline-flex items-center rounded-full border border-amber-500/50 px-2 py-0.5 text-[11px] text-amber-300">v2.0.0</span>
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-5xl mx-auto px-4 py-8">
+            <h1 class="text-2xl font-bold mb-6">Website Versions</h1>
+
+            <section class="mb-10">
+                <h2 class="text-xl font-semibold mb-2">v2.0.0</h2>
+                <ul class="list-disc ml-6 space-y-1 text-amber-300">
+                    <li>Added Tailwind-based header and footer with links to Home, Blog, Trilyonaryo, and Back to zelhantv.com.</li>
+                    <li>Introduced Versions page and version badge in header.</li>
+                    <li>Switched game data from inline JavaScript to external JSON: games.json.</li>
+                    <li>Added games_extra.json and implemented deep-merge with de-duplication.</li>
+                    <li>New platforms: PS5 and PC (Steam), each with 20 games per category.</li>
+                    <li>Refreshed layout to center generator and support header/footer.</li>
+                    <li>Kept retro theme styling; ensured selects auto-populate from data.</li>
+                </ul>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-xl font-semibold mb-2">v1.0.0</h2>
+                <ul class="list-disc ml-6 space-y-1 text-amber-300">
+                    <li>Initial release of Random Game Picker Generator.</li>
+                    <li>Supported platforms: PlayStation, PS2, PS3, PS4, Xbox, Nintendo Switch, PC, NES, SNES, Retro.</li>
+                    <li>Static lists embedded directly in JavaScript.</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="w-full mt-10 border-t border-amber-500 bg-black/70">
+            <div class="max-w-5xl mx-auto px-4 py-6 text-xs sm:text-sm text-amber-400 space-y-2 text-center">
+                <p>Developed and SEO by <a href="https://zeldigital.com" class="underline hover:text-amber-300">ZELDIGITAL®</a> • Powered by <a href="https://zeldigital.com" class="underline hover:text-amber-300">ZELDIGITAL®</a></p>
+                <p>Made by <a href="https://aidev.hanslacida.com" class="underline hover:text-amber-300">Aidev.HansLacida.com</a></p>
+                <p>Other sites: <a href="https://trilyonaryo.com" class="underline hover:text-amber-300">Trilyonaryo.com</a></p>
+                <p><a href="https://zelhantv.com" class="inline-flex items-center gap-2 hover:text-amber-300"><span aria-hidden="true">←</span> Back to zelhantv.com</a></p>
+            </div>
+        </footer>
+    </body>
+ </html>
+
+

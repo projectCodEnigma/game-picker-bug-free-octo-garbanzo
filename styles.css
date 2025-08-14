@@ -6,14 +6,11 @@ body {
     color: #FFBF00; /* Amber color */
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-header {
+/* Title styling moved off <header>; apply to page title area instead */
+.page-title {
     font-size: 1.5em;
     margin-bottom: 20px;
     text-shadow: 2px 2px 2px #FF8000; /* Amber glow effect */
@@ -28,6 +25,7 @@ main {
     width: 90%;
     max-width: 600px;
     text-align: center;
+    margin: 32px auto; /* center horizontally with top/bottom spacing */
 }
 
 label {
