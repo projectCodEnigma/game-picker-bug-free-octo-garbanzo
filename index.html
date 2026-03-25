@@ -1,116 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Random Game Picker Generator by Zelhan</title>
-        <meta name="description" content="Discover your next favorite game with the Random Game Picker Generator by Zelhan. Choose from all major consoles and genres, perfect for casual gamers or streamers looking to pick games on the go.">
-        <meta name="keywords" content="random game picker generator, game picker for streamers, casual game picker tool, random console game selector, game generator by genre, streaming game selector tool, PS5 random game generator, PC game genre picker, Xbox game picker tool, Nintendo Switch game selector, retro console game generator, gaming randomizer for streaming, pick a game to play generator, best games picker for consoles">
-        <meta name="author" content="Zelhan">
-        <meta name="robots" content="index, follow">
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://cdn.tailwindcss.com"></script>
-    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Game Picker Generator by Zelhan</title>
+  <meta name="description" content="Discover your next favorite game with the Random Game Picker Generator by Zelhan. Choose from all major consoles and genres, perfect for casual gamers or streamers looking to pick games on the go.">
+  <meta name="keywords" content="random game picker generator, game picker for streamers, casual game picker tool, random console game selector, game generator by genre">
+  <meta name="author" content="Zelhan">
+  <meta name="robots" content="index, follow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'cursive'],
+            hud: ['Orbitron', 'sans-serif'],
+            mono: ['"Share Tech Mono"', 'monospace'],
+          },
+          colors: {
+            amber: {
+              glow: '#FFBF00',
+              hot: '#FF8000',
+              dim: '#996600',
+            },
+            neon: {
+              green: '#39FF14',
+              cyan: '#00FFFF',
+              pink: '#FF006E',
+              purple: '#BF5FFF',
+            }
+          },
+          keyframes: {
+            scanline: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100vh)' }
+            },
+            flicker: {
+              '0%,100%': { opacity: '1' },
+              '92%': { opacity: '1' },
+              '93%': { opacity: '0.4' },
+              '94%': { opacity: '1' },
+              '96%': { opacity: '0.6' },
+              '97%': { opacity: '1' },
+            },
+            glitch: {
+              '0%,100%': { transform: 'translate(0)' },
+              '20%': { transform: 'translate(-2px, 2px)' },
+              '40%': { transform: 'translate(2px, -1px)' },
+              '60%': { transform: 'translate(-1px, 1px)' },
+              '80%': { transform: 'translate(1px, -2px)' },
+            },
+            pulse_glow: {
+              '0%,100%': { boxShadow: '0 0 8px #FFBF00, 0 0 16px #FF8000' },
+              '50%': { boxShadow: '0 0 20px #FFBF00, 0 0 40px #FF8000, 0 0 60px #FF6000' },
+            },
+            spin_slow: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' },
+            },
+            reveal_up: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            bounce_in: {
+              '0%': { transform: 'scale(0.3)', opacity: '0' },
+              '60%': { transform: 'scale(1.1)' },
+              '80%': { transform: 'scale(0.95)' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            roll: {
+              '0%': { transform: 'rotateX(0deg)', opacity: '1' },
+              '25%': { transform: 'rotateX(90deg)', opacity: '0' },
+              '26%': { content: 'attr(data-next)' },
+              '50%': { transform: 'rotateX(0deg)', opacity: '1' },
+              '100%': { transform: 'rotateX(0deg)', opacity: '1' },
+            },
+            typing: {
+              '0%': { width: '0' },
+              '100%': { width: '100%' }
+            },
+            blink_cursor: {
+              '50%': { borderColor: 'transparent' }
+            }
+          },
+          animation: {
+            scanline: 'scanline 8s linear infinite',
+            flicker: 'flicker 4s infinite',
+            glitch: 'glitch 0.4s steps(1) infinite',
+            pulse_glow: 'pulse_glow 2s ease-in-out infinite',
+            spin_slow: 'spin_slow 8s linear infinite',
+            reveal_up: 'reveal_up 0.5s ease-out forwards',
+            bounce_in: 'bounce_in 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --amber: #FFBF00;
+      --amber-hot: #FF8000;
+      --amber-dim: #664400;
+      --bg-deep: #050505;
+      --bg-panel: #0e0e0e;
+      --bg-card: #141414;
+      --neon-green: #39FF14;
+      --neon-cyan: #00FFFF;
+    }
 
-    </head>
-    
-    <body>
-        <header class="w-full bg-black/70 backdrop-blur border-b border-amber-500">
-            <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between text-amber-400">
-                <a href="https://zelhantv.com" class="flex items-center gap-2 hover:text-amber-300">
-                    <span aria-hidden="true">←</span>
-                    <span class="sr-only">Back to Home</span>
-                    <span class="font-bold">zelhanTV</span>
-                </a>
-                <nav class="flex items-center gap-4 text-sm">
-                    <a href="https://zelhantv.com" class="hover:text-amber-300">Home</a>
-                    <a href="https://zelhantv.com/blog" class="hover:text-amber-300">Blog</a>
-                    <a href="https://trilyonaryo.com" class="hover:text-amber-300">Trilyonaryo</a>
-                    <a href="versions.html" class="hover:text-amber-300">Versions</a>
-                    <span class="ml-2 inline-flex items-center rounded-full border border-amber-500/50 px-2 py-0.5 text-[11px] text-amber-300">v2.0.0</span>
-                </nav>
-            </div>
-        </header>
-        <main>
-            <div class="mb-6 text-center">
-                <h1 class="text-2xl font-bold">Random Game Picker Generator</h1>
-                <p class="opacity-90 mt-1">by Zelhan</p>
-            </div>
-            <label for="console">Select Console:</label>
-            <select id="console">
-                <option value="PlayStation">PlayStation</option>
-                <option value="PS2">PS2</option>
-                <option value="PS3">PS3</option>
-                <option value="PS4">PS4</option>
-                <option value="Xbox">Xbox</option>
-                <option value="Nintendo Switch">Nintendo Switch</option>
-                <option value="NES">NES</option>
-                <option value="SNES">SNES</option>
-                <option value="PC">PC</option>
-                <option value="Retro">Retro Consoles</option>
-            </select>
-    
-            <label for="genre">Select Genre:</label>
-            <select id="genre">
-                <option value="Action">Action</option>
-                <option value="Adventure">Adventure</option>
-                <option value="RPG">RPG</option>
-                <option value="Horror">Horror</option>
-                <option value="Sports">Sports</option>
-            </select>
-    
-            <button id="generate">Generate Random Game</button>
-    
-            <div class="result" id="result">
-                <p>Select a console and genre, then click "Generate" to see a game suggestion.</p>
-            </div>
-    
-            <div class="feedback">
-                <h3>Help Us Grow!</h3>
-                <p>
-                    Do you have game titles you'd like to see included in our database? Feedback or inquiries about our web app?
-                    Feel free to email us at:
-                </p>
-                <ul>
-                    <p><a href="mailto:feedback@zelhantv.com">feedback@zelhantv.com</a>
-                    <a href="mailto:zelhan@zelhantv.com">zelhan@zelhantv.com</a></p>
-                </ul>
-                <p>Your feedback helps improve this tool for both casual gamers and streamers alike!</p>
-            </div>
-        </main>
-        <footer class="w-full mt-10 border-t border-amber-500 bg-black/70">
-            <div class="max-w-5xl mx-auto px-4 py-6 text-xs sm:text-sm text-amber-400 space-y-2 text-center">
-                <p>Developed and SEO by <a href="https://zeldigital.com" class="underline hover:text-amber-300">ZELDIGITAL®</a> • Powered by <a href="https://zeldigital.com" class="underline hover:text-amber-300">ZELDIGITAL®</a></p>
-                <p>Made by <a href="https://aidev.hanslacida.com" class="underline hover:text-amber-300">Aidev.HansLacida.com</a></p>
-                <p>Other sites: <a href="https://trilyonaryo.com" class="underline hover:text-amber-300">Trilyonaryo.com</a></p>
-				<p>Other music: <a href="https://open.spotify.com/artist/7b8Kvt4GLIDZYQWGw5uzfK" class="underline hover:text-amber-300" rel="noopener" target="_blank">NERO EMPIRE</a></p>
-                <p><a href="https://zelhantv.com" class="inline-flex items-center gap-2 hover:text-amber-300"><span aria-hidden="true">←</span> Back to zelhantv.com</a></p>
-            </div>
-        </footer>
-        <script src="script.js"></script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250"
-     crossorigin="anonymous"></script>
-<!-- game picker ads -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2137593406454250"
-     data-ad-slot="2766048578"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    * { box-sizing: border-box; }
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-2137593406454250"
-     data-ad-slot="1452966901"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    </body>
-    
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background-color: var(--bg-deep);
+      color: var(--amber);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* CRT scanlines overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.15) 3px,
+        rgba(0,0,0,0.15) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Moving scanline */
+    body::after {
+      content: '';
+      position: fixed;
+      left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(255,191,0,0.04) 50%,
+        transparent 100%
+      );
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* Pixel grid bg */
+    .pixel-bg {
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(255,191,0,0.07) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+
+    /* Glow text */
+    .glow-text {
+      text-shadow:
+        0 0 8px var(--amber),
+        0 0 20px var(--amber-hot),
+        0 0 40px var(--amber-hot);
+    }
+
+    .glow-text-sm {
+      text-shadow: 0 0 6px var(--amber), 0 0 12px var(--amber-hot);
+    }
+
+    /* Neon border panels */
+    .neon-box {
+      border: 2px solid var(--amber);
+      box-shadow:
+        0 0 6px var(--amber),
+        0 0 20px rgba(255,128,0,0.4),
+        inset 0 0 20px rgba(255,191,0,0.03);
+    }
+
+    .neon-box-green {
+      border: 2px solid var(--neon-green);
+      box-shadow:
+        0 0 6px var(--neon-green),
+        0 0 20px rgba(57,255,20,0.3),
+        inset 0 0 20px rgba(57,255,20,0.03);
+    }
+
+    .neon-box-cyan {
+      border: 2px solid var(--neon-cyan);
+      box-shadow:
+        0 0 6px var(--neon-cyan),
+        0 0 20px rgba(0,255,255,0.3),
+        inset 0 0 20px rgba(0,255,255,0.03);
+    }
+
+    /* Corner decorations */
+    .corner-box {
+      position: relative;
+    }
+    .corner-box::before,
+    .corner-box::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: var(--amber);
+      border-style: solid;
+    }
+    .corner-box::before {
+      top: -2px; left: -2px;
+      border-width: 3px 0 0 3px;
+    }
+    .corner-box::after {
+      bottom: -2px; right: -2px;
+      border-width: 0 3px 3px 0;
+    }
+
+    /* HUD select */
+    .hud-select {
+      font-family: 'Share Tech Mono', monospace;
+      background: #0a0a0a;
+      color: var(--amber);
+      border: 2px solid var(--amber);
+      padding: 10px 14px;
+      width: 100%;
+      font-size: 13px;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 0 8px rgba(255,191,0,0.2), inset 0 0 8px rgba(0,0,0,0.5);
+      outline: none;
+    }
+    .hud-select:focus {
+      border-color: #FFF;
+      box-shadow: 0 0 12px var(--amber), 0 0 24px var(--amber-hot);
+      color: #fff;
+    }
+    .hud-select option {
+      background: #111;
+      color: var(--amber);
+    }
+
+    /* Generate button */
+    .btn-generate {
+      font-family: 'Press Start 2P', cursive;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a0a00 0%, #2d1500 50%, #1a0a00 100%);
+      color: var(--amber);
+      border: 3px solid var(--amber);
+      padding: 14px 20px;
+      width: 100%;
+      font-size: 11px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.15s;
+      box-shadow:
+        0 0 10px var(--amber),
+        0 0 30px rgba(255,128,0,0.4),
+        0 4px 0 #996600,
+        inset 0 0 20px rgba(255,128,0,0.05);
+      text-transform: uppercase;
+      clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px);
+    }
+    .btn-generate:hover {
+      background: linear-gradient(135deg, var(--amber-hot) 0%, var(--amber) 50%, var(--amber-hot) 100%);
+      color: #000;
+      box-shadow:
+        0 0 20px var(--amber),
+        0 0 50px var(--amber-hot),
+        0 0 80px rgba(255,128,0,0.5),
+        0 2px 0 #664400,
+        inset 0 0 30px rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    .btn-generate:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 8px var(--amber), 0 1px 0 #664400;
+    }
+    .btn-generate::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+      transition: left 0.4s;
+    }
+    .btn-generate:hover::before {
+      left: 150%;
+    }
+
+    /* Result card */
+    .result-card {
+      position: relative;
+      background: linear-gradient(135deg, #0a0600 0%, #150b00 40%, #0d0800 100%);
+      border: 2px solid var(--amber);
+      padding: 24px;
+      box-shadow:
+        0 0 10px var(--amber),
+        0 0 30px rgba(255,128,0,0.3),
+        inset 0 0 30px rgba(255,128,0,0.05);
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .result-card.has-result {
+      border-color: var(--neon-green);
+      box-shadow:
+        0 0 10px var(--neon-green),
+        0 0 30px rgba(57,255,20,0.25),
+        inset 0 0 30px rgba(57,255,20,0.04);
+    }
+
+    .result-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: #888;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .result-game-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(14px, 3vw, 22px);
+      font-weight: 900;
+      color: var(--neon-green);
+      text-shadow: 0 0 10px var(--neon-green), 0 0 30px rgba(57,255,20,0.4);
+      letter-spacing: 1px;
+      line-height: 1.3;
+      animation: bounce_in 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+    }
+
+    /* Pixel art decoration sprites */
+    .pixel-sprite {
+      image-rendering: pixelated;
+      display: inline-block;
+    }
+
+    /* Health bar style progress indicator */
+    .stat-bar {
+      height: 6px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      overflow: hidden;
+      position: relative;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber-hot), var(--amber), #FFE566);
+      box-shadow: 0 0 6px var(--amber);
+      transition: width 0.6s ease;
+    }
+
+    /* Console icon badges */
+    .console-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      background: rgba(255,191,0,0.08);
+      border: 1px solid rgba(255,191,0,0.3);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,191,0,0.7);
+      letter-spacing: 1px;
+    }
+
+    /* Level badge */
+    .level-badge {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      padding: 4px 8px;
+      background: rgba(255,128,0,0.15);
+      border: 1px solid var(--amber-hot);
+      color: var(--amber-hot);
+      box-shadow: 0 0 8px rgba(255,128,0,0.3);
+    }
+
+    /* Flicker animation */
+    .flicker {
+      animation: flicker 4s infinite;
+    }
+
+    /* Decorative horizontal rule */
+    .hud-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+      opacity: 0.4;
+      margin: 0;
+    }
+
+    /* Select wrapper with custom arrow */
+    .select-wrapper {
+      position: relative;
+    }
+    .select-wrapper::after {
+      content: '▼';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--amber);
+      font-size: 10px;
+      pointer-events: none;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    /* Countdown / rolling dice animation */
+    @keyframes roll_text {
+      0%   { transform: rotateX(0deg); opacity: 1; }
+      30%  { transform: rotateX(90deg); opacity: 0; }
+      60%  { transform: rotateX(-90deg); opacity: 0; }
+      100% { transform: rotateX(0deg); opacity: 1; }
+    }
+    .rolling {
+      animation: roll_text 0.15s ease-in-out infinite;
+    }
+
+    @keyframes result_enter {
+      0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+      100% { clip-path: inset(0 0% 0 0); opacity: 1; }
+    }
+    .result-animate {
+      animation: result_enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Loading dots */
+    @keyframes blink { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
+    .dot1 { animation: blink 1s infinite 0s; }
+    .dot2 { animation: blink 1s infinite 0.2s; }
+    .dot3 { animation: blink 1s infinite 0.4s; }
+
+    /* Footer link hover */
+    .footer-link {
+      color: rgba(255,191,0,0.6);
+      text-decoration: none;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      transition: all 0.2s;
+    }
+    .footer-link:hover {
+      color: var(--amber);
+      text-shadow: 0 0 8px var(--amber);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: var(--amber-dim); border-radius: 0; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--amber); }
+
+    /* Input label */
+    .hud-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,191,0,0.6);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hud-label::before {
+      content: '▶';
+      font-size: 8px;
+      color: var(--amber-hot);
+    }
+  </style>
+</head>
+<body class="pixel-bg">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="w-full border-b-2 border-amber-500 bg-black/90 backdrop-blur-sm sticky top-0 z-50"
+          style="box-shadow: 0 2px 20px rgba(255,128,0,0.3);">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="https://zelhantv.com"
+         class="flex items-center gap-3 group"
+         style="text-decoration:none;">
+        <div class="w-8 h-8 border-2 border-amber-500 flex items-center justify-center
+                    group-hover:bg-amber-500 group-hover:text-black transition-all duration-200"
+             style="box-shadow: 0 0 8px rgba(255,191,0,0.4); font-size: 14px;">
+          ◀
+        </div>
+        <span class="font-pixel text-amber-400 text-xs glow-text-sm group-hover:text-white
+                     transition-colors duration-200 hidden sm:block">
+          zelhanTV
+        </span>
+      </a>
+
+      <!-- Nav -->
+      <nav class="flex items-center gap-1 sm:gap-3">
+        <a href="https://zelhantv.com" class="footer-link text-amber-400 px-2 py-1 text-[10px]
+           hover:border-b border-amber-400">HOME</a>
+        <a href="https://zelhantv.com/blog" class="footer-link text-amber-400 px-2 py-1 text-[10px]
+           hover:border-b border-amber-400">BLOG</a>
+        <a href="https://trilyonaryo.com" class="footer-link text-amber-400 px-2 py-1 text-[10px]
+           hover:border-b border-amber-400 hidden sm:block">TRILYONARYO</a>
+        <a href="versions.html" class="footer-link text-amber-400 px-2 py-1 text-[10px]
+           hover:border-b border-amber-400">VERSIONS</a>
+        <span class="level-badge ml-1">v2.0</span>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ═══ HERO TITLE SECTION ═══ -->
+  <section class="max-w-4xl mx-auto px-4 pt-10 pb-4 text-center">
+
+    <!-- Decorative top line -->
+    <div class="flex items-center gap-3 mb-6 justify-center opacity-40">
+      <div class="h-px flex-1 max-w-16" style="background: linear-gradient(90deg, transparent, #FFBF00);"></div>
+      <span class="font-pixel text-[8px] text-amber-500">★ INSERT COIN ★</span>
+      <div class="h-px flex-1 max-w-16" style="background: linear-gradient(90deg, #FFBF00, transparent);"></div>
+    </div>
+
+    <!-- Main title -->
+    <div class="relative inline-block mb-2">
+      <h1 class="font-pixel text-amber-400 leading-relaxed flicker"
+          style="font-size: clamp(12px, 3.5vw, 22px);
+                 text-shadow: 0 0 10px #FFBF00, 0 0 30px #FF8000, 0 0 60px rgba(255,128,0,0.4);
+                 letter-spacing: 2px;">
+        RANDOM GAME<br>
+        <span style="color: #FF8000; font-size: 0.85em;">PICKER GENERATOR</span>
+      </h1>
+    </div>
+
+    <p class="font-pixel text-amber-600 text-[9px] mt-3 tracking-widest opacity-70">
+      — by ZELHAN —
+    </p>
+
+    <!-- Pixel art divider -->
+    <div class="flex justify-center items-center gap-2 mt-6 opacity-50">
+      <span class="text-amber-600 text-xs">◆</span>
+      <div class="h-px w-24 bg-amber-700"></div>
+      <span class="text-amber-400 text-xs">◆</span>
+      <div class="h-px w-24 bg-amber-700"></div>
+      <span class="text-amber-600 text-xs">◆</span>
+    </div>
+
+  </section>
+
+
+  <!-- ═══ MAIN GAME PICKER PANEL ═══ -->
+  <main class="max-w-2xl mx-auto px-4 pb-10">
+
+    <!-- Stats bar row -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <div class="flex items-center gap-2">
+        <span class="font-pixel text-[8px] text-amber-700">PLAYER 1</span>
+        <div class="stat-bar w-20">
+          <div class="stat-bar-fill" style="width: 100%"></div>
+        </div>
+      </div>
+      <div class="font-pixel text-[8px] text-amber-600" id="roll-counter">ROLLS: 0</div>
+      <div class="flex items-center gap-2">
+        <div class="stat-bar w-20">
+          <div class="stat-bar-fill" style="width: 77%"></div>
+        </div>
+        <span class="font-pixel text-[8px] text-amber-700">LUCK</span>
+      </div>
+    </div>
+
+    <!-- Main panel -->
+    <div class="neon-box corner-box bg-black/60" style="border-radius: 0; padding: 28px 24px;">
+
+      <!-- Panel header row -->
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 bg-amber-500 rounded-full" style="box-shadow: 0 0 8px #FFBF00; animation: pulse_glow 2s ease-in-out infinite;"></div>
+          <span class="font-hud text-amber-400 text-xs font-bold tracking-widest">GAME SELECT TERMINAL</span>
+        </div>
+        <div class="font-mono text-amber-700 text-[10px]" id="clock">00:00:00</div>
+      </div>
+
+      <hr class="hud-divider mb-6">
+
+      <!-- ── CONSOLE SELECT ── -->
+      <div class="mb-5">
+        <div class="hud-label">PLATFORM_SELECT</div>
+        <div class="select-wrapper">
+          <select id="console" class="hud-select"
+                  style="clip-path: polygon(6px 0%, calc(100% - 6px) 0%, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0% calc(100% - 6px), 0% 6px);">
+            <option value="">Loading platforms...</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ── GENRE SELECT ── -->
+      <div class="mb-7">
+        <div class="hud-label">GENRE_SELECT</div>
+        <div class="select-wrapper">
+          <select id="genre" class="hud-select"
+                  style="clip-path: polygon(6px 0%, calc(100% - 6px) 0%, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0% calc(100% - 6px), 0% 6px);">
+            <option value="">Select platform first...</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ── GENERATE BUTTON ── -->
+      <button id="generate" class="btn-generate mb-7">
+        <span id="btn-text">⚡ ROLL THE DICE ⚡</span>
+      </button>
+
+      <!-- ── RESULT BOX ── -->
+      <div id="result" class="result-card" style="border-radius: 0;">
+        <div class="text-center">
+          <p class="font-hud text-amber-700 text-xs tracking-widest" style="font-size: 10px;">
+            SELECT PLATFORM &amp; GENRE<br>
+            <span style="opacity:0.5">THEN ROLL THE DICE</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- History chip row -->
+      <div class="mt-4">
+        <div class="hud-label mb-2">RECENT ROLLS</div>
+        <div id="history" class="flex flex-wrap gap-2 min-h-[28px]">
+          <span class="text-amber-800 font-mono text-[10px]">— no rolls yet —</span>
+        </div>
+      </div>
+
+    </div><!-- /neon-box -->
+
+
+    <!-- ═══ FEEDBACK PANEL ═══ -->
+    <div class="mt-6 neon-box-cyan bg-black/40 p-5" style="border-radius: 0;">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="font-pixel text-[9px]" style="color: var(--neon-cyan);">◈ SUBMIT FEEDBACK</span>
+      </div>
+      <p class="font-mono text-xs text-amber-700 leading-relaxed mb-3">
+        Missing games? Have suggestions? Drop us a message and help grow the database!
+      </p>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <a href="mailto:feedback@zelhantv.com"
+           class="flex items-center justify-center gap-2 px-4 py-2 border border-amber-700 text-amber-600
+                  hover:border-amber-400 hover:text-amber-300 transition-all duration-200
+                  font-mono text-[11px] bg-black/30">
+          ✉ feedback@zelhantv.com
+        </a>
+        <a href="mailto:zelhan@zelhantv.com"
+           class="flex items-center justify-center gap-2 px-4 py-2 border border-amber-700 text-amber-600
+                  hover:border-amber-400 hover:text-amber-300 transition-all duration-200
+                  font-mono text-[11px] bg-black/30">
+          ✉ zelhan@zelhantv.com
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="w-full border-t-2 border-amber-900 bg-black/80 mt-4">
+    <div class="max-w-4xl mx-auto px-4 py-6">
+
+      <!-- Pixel divider -->
+      <div class="flex items-center gap-2 mb-5 justify-center opacity-30">
+        <span class="font-pixel text-[8px]">■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center mb-5">
+        <div>
+          <p class="font-pixel text-amber-700 text-[8px] mb-2 tracking-widest">DEVELOPER</p>
+          <a href="https://zeldigital.com" class="footer-link block">ZELDIGITAL®</a>
+          <a href="https://aidev.hanslacida.com" class="footer-link block mt-1">aidev.hanslacida.com</a>
+        </div>
+        <div>
+          <p class="font-pixel text-amber-700 text-[8px] mb-2 tracking-widest">SITES</p>
+          <a href="https://zelhantv.com" class="footer-link block">zelhantv.com</a>
+          <a href="https://trilyonaryo.com" class="footer-link block mt-1">trilyonaryo.com</a>
+        </div>
+        <div>
+          <p class="font-pixel text-amber-700 text-[8px] mb-2 tracking-widest">MUSIC</p>
+          <a href="https://open.spotify.com/artist/1HgCqz4lESpT3aAdTla5mi?si=l45eXB-kRGm_OEKAlNRheg"
+             class="footer-link block" target="_blank" rel="noopener">
+            ZELHAN Spotify ↗
+          </a>
+        </div>
+      </div>
+
+      <hr class="hud-divider mb-4">
+
+      <div class="flex justify-center">
+        <a href="https://zelhantv.com"
+           class="flex items-center gap-2 font-pixel text-amber-700 hover:text-amber-400
+                  transition-colors duration-200 text-[8px] hover:glow-text-sm">
+          ◀ BACK TO ZELHANTV.COM
+        </a>
+      </div>
+
+      <p class="text-center font-pixel text-amber-900 text-[7px] mt-4 opacity-60">
+        © ZELDIGITAL® — ALL RIGHTS RESERVED — GAME ON
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250" crossorigin="anonymous"></script>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2137593406454250"
+       data-ad-slot="2766048578" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250" crossorigin="anonymous"></script>
+  <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+       data-ad-client="ca-pub-2137593406454250" data-ad-slot="1452966901"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <script src="script.js"></script>
+  <script>
+    // Live clock
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2,'0');
+      const m = String(now.getMinutes()).padStart(2,'0');
+      const s = String(now.getSeconds()).padStart(2,'0');
+      const el = document.getElementById('clock');
+      if (el) el.textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
 </html>
