@@ -110,11 +110,8 @@
       --neon-green: #39FF14;
       --neon-cyan: #00FFFF;
     }
-
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Press Start 2P', cursive;
       background-color: var(--bg-deep);
@@ -124,8 +121,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* CRT scanlines overlay */
     body::before {
       content: '';
       position: fixed;
@@ -140,8 +135,6 @@
       pointer-events: none;
       z-index: 9999;
     }
-
-    /* Moving scanline */
     body::after {
       content: '';
       position: fixed;
@@ -156,27 +149,20 @@
       pointer-events: none;
       z-index: 9998;
     }
-
-    /* Pixel grid bg */
     .pixel-bg {
       background-image:
         radial-gradient(circle at 1px 1px, rgba(255,191,0,0.07) 1px, transparent 0);
       background-size: 32px 32px;
     }
-
-    /* Glow text */
     .glow-text {
       text-shadow:
         0 0 8px var(--amber),
         0 0 20px var(--amber-hot),
         0 0 40px var(--amber-hot);
     }
-
     .glow-text-sm {
       text-shadow: 0 0 6px var(--amber), 0 0 12px var(--amber-hot);
     }
-
-    /* Neon border panels */
     .neon-box {
       border: 2px solid var(--amber);
       box-shadow:
@@ -184,7 +170,6 @@
         0 0 20px rgba(255,128,0,0.4),
         inset 0 0 20px rgba(255,191,0,0.03);
     }
-
     .neon-box-green {
       border: 2px solid var(--neon-green);
       box-shadow:
@@ -192,7 +177,6 @@
         0 0 20px rgba(57,255,20,0.3),
         inset 0 0 20px rgba(57,255,20,0.03);
     }
-
     .neon-box-cyan {
       border: 2px solid var(--neon-cyan);
       box-shadow:
@@ -200,8 +184,6 @@
         0 0 20px rgba(0,255,255,0.3),
         inset 0 0 20px rgba(0,255,255,0.03);
     }
-
-    /* Corner decorations */
     .corner-box {
       position: relative;
     }
@@ -222,8 +204,6 @@
       bottom: -2px; right: -2px;
       border-width: 0 3px 3px 0;
     }
-
-    /* HUD select */
     .hud-select {
       font-family: 'Share Tech Mono', monospace;
       background: #0a0a0a;
@@ -248,8 +228,6 @@
       background: #111;
       color: var(--amber);
     }
-
-    /* Generate button */
     .btn-generate {
       font-family: 'Press Start 2P', cursive;
       position: relative;
@@ -299,8 +277,6 @@
     .btn-generate:hover::before {
       left: 150%;
     }
-
-    /* Result card */
     .result-card {
       position: relative;
       background: linear-gradient(135deg, #0a0600 0%, #150b00 40%, #0d0800 100%);
@@ -315,7 +291,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .result-card.has-result {
       border-color: var(--neon-green);
       box-shadow:
@@ -323,7 +298,6 @@
         0 0 30px rgba(57,255,20,0.25),
         inset 0 0 30px rgba(57,255,20,0.04);
     }
-
     .result-title {
       font-family: 'Orbitron', sans-serif;
       font-size: 10px;
@@ -333,7 +307,6 @@
       text-transform: uppercase;
       margin-bottom: 8px;
     }
-
     .result-game-name {
       font-family: 'Orbitron', sans-serif;
       font-size: clamp(14px, 3vw, 22px);
@@ -344,14 +317,10 @@
       line-height: 1.3;
       animation: bounce_in 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
     }
-
-    /* Pixel art decoration sprites */
     .pixel-sprite {
       image-rendering: pixelated;
       display: inline-block;
     }
-
-    /* Health bar style progress indicator */
     .stat-bar {
       height: 6px;
       background: #1a1a1a;
@@ -365,8 +334,6 @@
       box-shadow: 0 0 6px var(--amber);
       transition: width 0.6s ease;
     }
-
-    /* Console icon badges */
     .console-badge {
       display: inline-flex;
       align-items: center;
@@ -379,8 +346,6 @@
       color: rgba(255,191,0,0.7);
       letter-spacing: 1px;
     }
-
-    /* Level badge */
     .level-badge {
       font-family: 'Press Start 2P', cursive;
       font-size: 9px;
@@ -390,13 +355,9 @@
       color: var(--amber-hot);
       box-shadow: 0 0 8px rgba(255,128,0,0.3);
     }
-
-    /* Flicker animation */
     .flicker {
       animation: flicker 4s infinite;
     }
-
-    /* Decorative horizontal rule */
     .hud-divider {
       border: none;
       height: 1px;
@@ -404,8 +365,6 @@
       opacity: 0.4;
       margin: 0;
     }
-
-    /* Select wrapper with custom arrow */
     .select-wrapper {
       position: relative;
     }
@@ -420,8 +379,6 @@
       pointer-events: none;
       font-family: 'Press Start 2P', cursive;
     }
-
-    /* Countdown / rolling dice animation */
     @keyframes roll_text {
       0%   { transform: rotateX(0deg); opacity: 1; }
       30%  { transform: rotateX(90deg); opacity: 0; }
@@ -431,7 +388,6 @@
     .rolling {
       animation: roll_text 0.15s ease-in-out infinite;
     }
-
     @keyframes result_enter {
       0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
       100% { clip-path: inset(0 0% 0 0); opacity: 1; }
@@ -439,14 +395,10 @@
     .result-animate {
       animation: result_enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
-
-    /* Loading dots */
     @keyframes blink { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
     .dot1 { animation: blink 1s infinite 0s; }
     .dot2 { animation: blink 1s infinite 0.2s; }
     .dot3 { animation: blink 1s infinite 0.4s; }
-
-    /* Footer link hover */
     .footer-link {
       color: rgba(255,191,0,0.6);
       text-decoration: none;
@@ -458,14 +410,10 @@
       color: var(--amber);
       text-shadow: 0 0 8px var(--amber);
     }
-
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0a0a0a; }
     ::-webkit-scrollbar-thumb { background: var(--amber-dim); border-radius: 0; }
     ::-webkit-scrollbar-thumb:hover { background: var(--amber); }
-
-    /* Input label */
     .hud-label {
       font-family: 'Share Tech Mono', monospace;
       font-size: 11px;
@@ -485,13 +433,10 @@
   </style>
 </head>
 <body class="pixel-bg">
-
   <!-- ═══ HEADER ═══ -->
   <header class="w-full border-b-2 border-amber-500 bg-black/90 backdrop-blur-sm sticky top-0 z-50"
           style="box-shadow: 0 2px 20px rgba(255,128,0,0.3);">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-
-      <!-- Logo -->
       <a href="https://zelhantv.com"
          class="flex items-center gap-3 group"
          style="text-decoration:none;">
@@ -505,8 +450,6 @@
           zelhanTV
         </span>
       </a>
-
-      <!-- Nav -->
       <nav class="flex items-center gap-1 sm:gap-3">
         <a href="https://zelhantv.com" class="footer-link text-amber-400 px-2 py-1 text-[10px]
            hover:border-b border-amber-400">HOME</a>
@@ -518,22 +461,16 @@
            hover:border-b border-amber-400">VERSIONS</a>
         <span class="level-badge ml-1">v3.0</span>
       </nav>
-
     </div>
   </header>
 
-
   <!-- ═══ HERO TITLE SECTION ═══ -->
   <section class="max-w-4xl mx-auto px-4 pt-10 pb-4 text-center">
-
-    <!-- Decorative top line -->
     <div class="flex items-center gap-3 mb-6 justify-center opacity-40">
       <div class="h-px flex-1 max-w-16" style="background: linear-gradient(90deg, transparent, #FFBF00);"></div>
       <span class="font-pixel text-[8px] text-amber-500">★ INSERT COIN ★</span>
       <div class="h-px flex-1 max-w-16" style="background: linear-gradient(90deg, #FFBF00, transparent);"></div>
     </div>
-
-    <!-- Main title -->
     <div class="relative inline-block mb-2">
       <h1 class="font-pixel text-amber-400 leading-relaxed flicker"
           style="font-size: clamp(12px, 3.5vw, 22px);
@@ -543,12 +480,9 @@
         <span style="color: #FF8000; font-size: 0.85em;">PICKER GENERATOR</span>
       </h1>
     </div>
-
     <p class="font-pixel text-amber-600 text-[9px] mt-3 tracking-widest opacity-70">
       — by ZELHAN —
     </p>
-
-    <!-- Pixel art divider -->
     <div class="flex justify-center items-center gap-2 mt-6 opacity-50">
       <span class="text-amber-600 text-xs">◆</span>
       <div class="h-px w-24 bg-amber-700"></div>
@@ -556,14 +490,10 @@
       <div class="h-px w-24 bg-amber-700"></div>
       <span class="text-amber-600 text-xs">◆</span>
     </div>
-
   </section>
-
 
   <!-- ═══ MAIN GAME PICKER PANEL ═══ -->
   <main class="max-w-2xl mx-auto px-4 pb-10">
-
-    <!-- Stats bar row -->
     <div class="flex items-center justify-between mb-4 px-1">
       <div class="flex items-center gap-2">
         <span class="font-pixel text-[8px] text-amber-700">PLAYER 1</span>
@@ -580,10 +510,7 @@
       </div>
     </div>
 
-    <!-- Main panel -->
     <div class="neon-box corner-box bg-black/60" style="border-radius: 0; padding: 28px 24px;">
-
-      <!-- Panel header row -->
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
           <div class="w-3 h-3 bg-amber-500 rounded-full" style="box-shadow: 0 0 8px #FFBF00; animation: pulse_glow 2s ease-in-out infinite;"></div>
@@ -591,10 +518,8 @@
         </div>
         <div class="font-mono text-amber-700 text-[10px]" id="clock">00:00:00</div>
       </div>
-
       <hr class="hud-divider mb-6">
 
-      <!-- ── CONSOLE SELECT ── -->
       <div class="mb-5">
         <div class="hud-label">PLATFORM_SELECT</div>
         <div class="select-wrapper">
@@ -605,7 +530,6 @@
         </div>
       </div>
 
-      <!-- ── GENRE SELECT ── -->
       <div class="mb-7">
         <div class="hud-label">GENRE_SELECT</div>
         <div class="select-wrapper">
@@ -616,12 +540,10 @@
         </div>
       </div>
 
-      <!-- ── GENERATE BUTTON ── -->
       <button id="generate" class="btn-generate mb-7">
         <span id="btn-text">⚡ ROLL THE DICE ⚡</span>
       </button>
 
-      <!-- ── RESULT BOX ── -->
       <div id="result" class="result-card" style="border-radius: 0;">
         <div class="text-center">
           <p class="font-hud text-amber-700 text-xs tracking-widest" style="font-size: 10px;">
@@ -631,16 +553,13 @@
         </div>
       </div>
 
-      <!-- History chip row -->
       <div class="mt-4">
         <div class="hud-label mb-2">RECENT ROLLS</div>
         <div id="history" class="flex flex-wrap gap-2 min-h-[28px]">
           <span class="text-amber-800 font-mono text-[10px]">— no rolls yet —</span>
         </div>
       </div>
-
-    </div><!-- /neon-box -->
-
+    </div>
 
     <!-- ═══ FEEDBACK PANEL ═══ -->
     <div class="mt-6 neon-box-cyan bg-black/40 p-5" style="border-radius: 0;">
@@ -665,19 +584,14 @@
         </a>
       </div>
     </div>
-
   </main>
-
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="w-full border-t-2 border-amber-900 bg-black/80 mt-4">
     <div class="max-w-4xl mx-auto px-4 py-6">
-
-      <!-- Pixel divider -->
       <div class="flex items-center gap-2 mb-5 justify-center opacity-30">
         <span class="font-pixel text-[8px]">■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■</span>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center mb-5">
         <div>
           <p class="font-pixel text-amber-700 text-[8px] mb-2 tracking-widest">DEVELOPER</p>
@@ -697,9 +611,7 @@
           </a>
         </div>
       </div>
-
       <hr class="hud-divider mb-4">
-
       <div class="flex justify-center">
         <a href="https://zelhantv.com"
            class="flex items-center gap-2 font-pixel text-amber-700 hover:text-amber-400
@@ -707,11 +619,9 @@
           ◀ BACK TO ZELHANTV.COM
         </a>
       </div>
-
       <p class="text-center font-pixel text-amber-900 text-[7px] mt-4 opacity-60">
         © ZELDIGITAL® — ALL RIGHTS RESERVED — GAME ON
       </p>
-
     </div>
   </footer>
 
@@ -720,15 +630,15 @@
   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2137593406454250"
        data-ad-slot="2766048578" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250" crossorigin="anonymous"></script>
   <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
        data-ad-client="ca-pub-2137593406454250" data-ad-slot="1452966901"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
   <script src="script.js"></script>
+
   <script>
-    // Live clock
+    // ─── Live clock ───
     function updateClock() {
       const now = new Date();
       const h = String(now.getHours()).padStart(2,'0');
@@ -739,6 +649,117 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
+
+    // ─── Dice Roll Sound (Web Audio API — no external files needed) ───
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      return audioCtx;
+    }
+
+    function playDiceRollSound() {
+      const ctx = getAudioContext();
+
+      // Resume context if suspended (browser autoplay policy)
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const now = ctx.currentTime;
+
+      // ── Phase 1: Rapid rattling ticks (dice tumbling) ──
+      const tickCount = 12;
+      for (let i = 0; i < tickCount; i++) {
+        const tickTime = now + i * 0.055;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const filter = ctx.createBiquadFilter();
+
+        filter.type = 'bandpass';
+        filter.frequency.value = 800 + Math.random() * 1200;
+        filter.Q.value = 2;
+
+        // Pitch descends slightly as dice settle
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(180 + Math.random() * 120 - i * 4, tickTime);
+
+        // Each tick fades out fast
+        gain.gain.setValueAtTime(0, tickTime);
+        gain.gain.linearRampToValueAtTime(0.18 - i * 0.008, tickTime + 0.006);
+        gain.gain.exponentialRampToValueAtTime(0.001, tickTime + 0.045);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(tickTime);
+        osc.stop(tickTime + 0.05);
+      }
+
+      // ── Phase 2: Noise burst (dice hitting surface) ──
+      const noiseBuffer = ctx.createBuffer(1, ctx.sampleRate * 0.12, ctx.sampleRate);
+      const data = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < data.length; i++) {
+        data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+      }
+      const noiseSource = ctx.createBufferSource();
+      noiseSource.buffer = noiseBuffer;
+
+      const noiseFilter = ctx.createBiquadFilter();
+      noiseFilter.type = 'bandpass';
+      noiseFilter.frequency.value = 600;
+      noiseFilter.Q.value = 0.8;
+
+      const noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.25, now + 0.55);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.67);
+
+      noiseSource.connect(noiseFilter);
+      noiseFilter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+      noiseSource.start(now + 0.55);
+
+      // ── Phase 3: Final landing thud ──
+      const thudOsc = ctx.createOscillator();
+      const thudGain = ctx.createGain();
+      thudOsc.type = 'sine';
+      thudOsc.frequency.setValueAtTime(90, now + 0.62);
+      thudOsc.frequency.exponentialRampToValueAtTime(40, now + 0.72);
+      thudGain.gain.setValueAtTime(0.35, now + 0.62);
+      thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.72);
+      thudOsc.connect(thudGain);
+      thudGain.connect(ctx.destination);
+      thudOsc.start(now + 0.62);
+      thudOsc.stop(now + 0.73);
+
+      // ── Phase 4: Arcade "result" chime ──
+      const chimeNotes = [523.25, 659.25, 783.99]; // C5, E5, G5
+      chimeNotes.forEach((freq, i) => {
+        const chimeOsc = ctx.createOscillator();
+        const chimeGain = ctx.createGain();
+        chimeOsc.type = 'triangle';
+        chimeOsc.frequency.value = freq;
+        const chimeStart = now + 0.78 + i * 0.1;
+        chimeGain.gain.setValueAtTime(0, chimeStart);
+        chimeGain.gain.linearRampToValueAtTime(0.2, chimeStart + 0.02);
+        chimeGain.gain.exponentialRampToValueAtTime(0.001, chimeStart + 0.22);
+        chimeOsc.connect(chimeGain);
+        chimeGain.connect(ctx.destination);
+        chimeOsc.start(chimeStart);
+        chimeOsc.stop(chimeStart + 0.25);
+      });
+    }
+
+    // ─── Hook sound to the generate button ───
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('generate');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          playDiceRollSound();
+        });
+      }
+    });
   </script>
 </body>
 </html>
