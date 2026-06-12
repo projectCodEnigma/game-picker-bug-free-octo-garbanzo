@@ -18,13 +18,43 @@
                 </a>
                 <nav class="flex items-center gap-4 text-sm">
                     <a href="index.html" class="hover:text-amber-300">Tool</a>
-                    <span class="ml-2 inline-flex items-center rounded-full border border-amber-500/50 px-2 py-0.5 text-[11px] text-amber-300">v2.0.0</span>
+                    <span class="ml-2 inline-flex items-center rounded-full border border-amber-500/50 px-2 py-0.5 text-[11px] text-amber-300">v4.0.0</span>
                 </nav>
             </div>
         </header>
-
         <main class="max-w-5xl mx-auto px-4 py-8">
             <h1 class="text-2xl font-bold mb-6">Website Versions</h1>
+
+            <section class="mb-10">
+                <h2 class="text-xl font-semibold mb-2">v4.0.0</h2>
+                <ul class="list-disc ml-6 space-y-1 text-amber-300">
+                    <li>Fixed critical ad placement bug — AdSense <code>&lt;ins&gt;</code> tags were inside <code>&lt;head&gt;</code>, pushing ads above all content on load. Moved to proper in-body positions.</li>
+                    <li>Top ad slot now renders after the hero title, not before it — tool is always visible on page load.</li>
+                    <li>Mid ad slot placed at a natural content break between panels, improving AdSense policy compliance.</li>
+                    <li>Added Surprise Mode toggle — picks a completely random game ignoring platform and genre filters.</li>
+                    <li>Added Save to Favorites — persists up to 20 saved games in localStorage across sessions.</li>
+                    <li>Added Copy Result button — copies a shareable game pick string to clipboard.</li>
+                    <li>Added toast notification system for user feedback on actions.</li>
+                    <li>Added Clear All button for the favorites panel.</li>
+                    <li>Result action buttons (Save, Copy) appear only after a game is picked.</li>
+                </ul>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-xl font-semibold mb-2">v3.0.0</h2>
+                <ul class="list-disc ml-6 space-y-1 text-amber-300">
+                    <li>Full visual overhaul to retro arcade / CRT terminal aesthetic.</li>
+                    <li>Added Press Start 2P, Orbitron, and Share Tech Mono fonts.</li>
+                    <li>Animated scanline and flicker effects via CSS keyframes.</li>
+                    <li>Dice roll animation cycles through random game names before landing on result.</li>
+                    <li>Web Audio API dice sound — rattling ticks, noise burst, thud, and arcade chime.</li>
+                    <li>Recent Rolls history panel shows last 5 picks with fade-out opacity.</li>
+                    <li>Live HUD clock, roll counter, and player stat bars.</li>
+                    <li>Neon glow box variants (amber, green, cyan) for different panels.</li>
+                    <li>Clip-path octagon styling on selects and generate button.</li>
+                    <li>Sticky header with zelhanTV nav links and version badge.</li>
+                </ul>
+            </section>
 
             <section class="mb-10">
                 <h2 class="text-xl font-semibold mb-2">v2.0.0</h2>
@@ -48,7 +78,6 @@
                 </ul>
             </section>
         </main>
-
         <footer class="w-full mt-10 border-t border-amber-500 bg-black/70">
             <div class="max-w-5xl mx-auto px-4 py-6 text-xs sm:text-sm text-amber-400 space-y-2 text-center">
                 <p>Developed and SEO by <a href="https://zeldigital.com" class="underline hover:text-amber-300">ZELDIGITAL®</a> • Powered by <a href="https://zeldigital.com" class="underline hover:text-amber-300">ZELDIGITAL®</a></p>
@@ -59,6 +88,4 @@
             </div>
         </footer>
     </body>
- </html>
-
-
+</html>
