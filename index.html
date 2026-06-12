@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250" crossorigin="anonymous"></script>
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2137593406454250"
-       data-ad-slot="2766048578" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250" crossorigin="anonymous"></script>
-  <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
-       data-ad-client="ca-pub-2137593406454250" data-ad-slot="1452966901"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Game Picker Generator by Zelhan</title>
@@ -18,9 +8,14 @@
   <meta name="keywords" content="random game picker generator, game picker for streamers, casual game picker tool, random console game selector, game generator by genre">
   <meta name="author" content="Zelhan">
   <meta name="robots" content="index, follow">
+
+  <!-- AdSense Script (load in head, but ads render in body) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2137593406454250" crossorigin="anonymous"></script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
@@ -31,84 +26,26 @@
             mono: ['"Share Tech Mono"', 'monospace'],
           },
           colors: {
-            amber: {
-              glow: '#FFBF00',
-              hot: '#FF8000',
-              dim: '#996600',
-            },
-            neon: {
-              green: '#39FF14',
-              cyan: '#00FFFF',
-              pink: '#FF006E',
-              purple: '#BF5FFF',
-            }
+            amber: { glow: '#FFBF00', hot: '#FF8000', dim: '#996600' },
+            neon: { green: '#39FF14', cyan: '#00FFFF', pink: '#FF006E', purple: '#BF5FFF' }
           },
           keyframes: {
-            scanline: {
-              '0%': { transform: 'translateY(-100%)' },
-              '100%': { transform: 'translateY(100vh)' }
-            },
-            flicker: {
-              '0%,100%': { opacity: '1' },
-              '92%': { opacity: '1' },
-              '93%': { opacity: '0.4' },
-              '94%': { opacity: '1' },
-              '96%': { opacity: '0.6' },
-              '97%': { opacity: '1' },
-            },
-            glitch: {
-              '0%,100%': { transform: 'translate(0)' },
-              '20%': { transform: 'translate(-2px, 2px)' },
-              '40%': { transform: 'translate(2px, -1px)' },
-              '60%': { transform: 'translate(-1px, 1px)' },
-              '80%': { transform: 'translate(1px, -2px)' },
-            },
-            pulse_glow: {
-              '0%,100%': { boxShadow: '0 0 8px #FFBF00, 0 0 16px #FF8000' },
-              '50%': { boxShadow: '0 0 20px #FFBF00, 0 0 40px #FF8000, 0 0 60px #FF6000' },
-            },
-            spin_slow: {
-              '0%': { transform: 'rotate(0deg)' },
-              '100%': { transform: 'rotate(360deg)' },
-            },
-            reveal_up: {
-              '0%': { opacity: '0', transform: 'translateY(24px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            bounce_in: {
-              '0%': { transform: 'scale(0.3)', opacity: '0' },
-              '60%': { transform: 'scale(1.1)' },
-              '80%': { transform: 'scale(0.95)' },
-              '100%': { transform: 'scale(1)', opacity: '1' },
-            },
-            roll: {
-              '0%': { transform: 'rotateX(0deg)', opacity: '1' },
-              '25%': { transform: 'rotateX(90deg)', opacity: '0' },
-              '26%': { content: 'attr(data-next)' },
-              '50%': { transform: 'rotateX(0deg)', opacity: '1' },
-              '100%': { transform: 'rotateX(0deg)', opacity: '1' },
-            },
-            typing: {
-              '0%': { width: '0' },
-              '100%': { width: '100%' }
-            },
-            blink_cursor: {
-              '50%': { borderColor: 'transparent' }
-            }
+            scanline: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(100vh)' } },
+            flicker: { '0%,100%': { opacity: '1' }, '92%': { opacity: '1' }, '93%': { opacity: '0.4' }, '94%': { opacity: '1' }, '96%': { opacity: '0.6' }, '97%': { opacity: '1' } },
+            pulse_glow: { '0%,100%': { boxShadow: '0 0 8px #FFBF00, 0 0 16px #FF8000' }, '50%': { boxShadow: '0 0 20px #FFBF00, 0 0 40px #FF8000, 0 0 60px #FF6000' } },
+            bounce_in: { '0%': { transform: 'scale(0.3)', opacity: '0' }, '60%': { transform: 'scale(1.1)' }, '80%': { transform: 'scale(0.95)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
           },
           animation: {
             scanline: 'scanline 8s linear infinite',
             flicker: 'flicker 4s infinite',
-            glitch: 'glitch 0.4s steps(1) infinite',
             pulse_glow: 'pulse_glow 2s ease-in-out infinite',
-            spin_slow: 'spin_slow 8s linear infinite',
-            reveal_up: 'reveal_up 0.5s ease-out forwards',
             bounce_in: 'bounce_in 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards',
           }
         }
       }
     }
   </script>
+
   <style>
     :root {
       --amber: #FFBF00;
@@ -126,355 +63,240 @@
       font-family: 'Press Start 2P', cursive;
       background-color: var(--bg-deep);
       color: var(--amber);
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       min-height: 100vh;
       overflow-x: hidden;
     }
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 3px,
-        rgba(0,0,0,0.15) 3px,
-        rgba(0,0,0,0.15) 4px
-      );
-      pointer-events: none;
-      z-index: 9999;
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px);
+      pointer-events: none; z-index: 9999;
     }
     body::after {
       content: '';
-      position: fixed;
-      left: 0; right: 0;
+      position: fixed; left: 0; right: 0;
       height: 60px;
-      background: linear-gradient(to bottom,
-        transparent 0%,
-        rgba(255,191,0,0.04) 50%,
-        transparent 100%
-      );
+      background: linear-gradient(to bottom, transparent 0%, rgba(255,191,0,0.04) 50%, transparent 100%);
       animation: scanline 8s linear infinite;
-      pointer-events: none;
-      z-index: 9998;
+      pointer-events: none; z-index: 9998;
     }
     .pixel-bg {
-      background-image:
-        radial-gradient(circle at 1px 1px, rgba(255,191,0,0.07) 1px, transparent 0);
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,191,0,0.07) 1px, transparent 0);
       background-size: 32px 32px;
     }
-    .glow-text {
-      text-shadow:
-        0 0 8px var(--amber),
-        0 0 20px var(--amber-hot),
-        0 0 40px var(--amber-hot);
-    }
-    .glow-text-sm {
-      text-shadow: 0 0 6px var(--amber), 0 0 12px var(--amber-hot);
-    }
+    .glow-text { text-shadow: 0 0 8px var(--amber), 0 0 20px var(--amber-hot), 0 0 40px var(--amber-hot); }
+    .glow-text-sm { text-shadow: 0 0 6px var(--amber), 0 0 12px var(--amber-hot); }
     .neon-box {
       border: 2px solid var(--amber);
-      box-shadow:
-        0 0 6px var(--amber),
-        0 0 20px rgba(255,128,0,0.4),
-        inset 0 0 20px rgba(255,191,0,0.03);
+      box-shadow: 0 0 6px var(--amber), 0 0 20px rgba(255,128,0,0.4), inset 0 0 20px rgba(255,191,0,0.03);
     }
     .neon-box-green {
       border: 2px solid var(--neon-green);
-      box-shadow:
-        0 0 6px var(--neon-green),
-        0 0 20px rgba(57,255,20,0.3),
-        inset 0 0 20px rgba(57,255,20,0.03);
+      box-shadow: 0 0 6px var(--neon-green), 0 0 20px rgba(57,255,20,0.3), inset 0 0 20px rgba(57,255,20,0.03);
     }
     .neon-box-cyan {
       border: 2px solid var(--neon-cyan);
-      box-shadow:
-        0 0 6px var(--neon-cyan),
-        0 0 20px rgba(0,255,255,0.3),
-        inset 0 0 20px rgba(0,255,255,0.03);
+      box-shadow: 0 0 6px var(--neon-cyan), 0 0 20px rgba(0,255,255,0.3), inset 0 0 20px rgba(0,255,255,0.03);
     }
-    .corner-box {
-      position: relative;
-    }
-    .corner-box::before,
-    .corner-box::after {
+    .corner-box { position: relative; }
+    .corner-box::before, .corner-box::after {
       content: '';
       position: absolute;
-      width: 12px;
-      height: 12px;
-      border-color: var(--amber);
-      border-style: solid;
+      width: 12px; height: 12px;
+      border-color: var(--amber); border-style: solid;
     }
-    .corner-box::before {
-      top: -2px; left: -2px;
-      border-width: 3px 0 0 3px;
-    }
-    .corner-box::after {
-      bottom: -2px; right: -2px;
-      border-width: 0 3px 3px 0;
-    }
+    .corner-box::before { top: -2px; left: -2px; border-width: 3px 0 0 3px; }
+    .corner-box::after { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; }
+
     .hud-select {
       font-family: 'Share Tech Mono', monospace;
-      background: #0a0a0a;
-      color: var(--amber);
+      background: #0a0a0a; color: var(--amber);
       border: 2px solid var(--amber);
-      padding: 10px 14px;
-      width: 100%;
-      font-size: 13px;
-      appearance: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 10px 14px; width: 100%; font-size: 13px;
+      appearance: none; -webkit-appearance: none;
+      cursor: pointer; transition: all 0.2s;
       box-shadow: 0 0 8px rgba(255,191,0,0.2), inset 0 0 8px rgba(0,0,0,0.5);
       outline: none;
     }
     .hud-select:focus {
       border-color: #FFF;
-      box-shadow: 0 0 12px var(--amber), 0 0 24px var(--amber-hot);
-      color: #fff;
+      box-shadow: 0 0 12px var(--amber), 0 0 24px var(--amber-hot); color: #fff;
     }
-    .hud-select option {
-      background: #111;
-      color: var(--amber);
-    }
+    .hud-select option { background: #111; color: var(--amber); }
+
     .btn-generate {
       font-family: 'Press Start 2P', cursive;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       background: linear-gradient(135deg, #1a0a00 0%, #2d1500 50%, #1a0a00 100%);
-      color: var(--amber);
-      border: 3px solid var(--amber);
-      padding: 14px 20px;
-      width: 100%;
-      font-size: 11px;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: all 0.15s;
-      box-shadow:
-        0 0 10px var(--amber),
-        0 0 30px rgba(255,128,0,0.4),
-        0 4px 0 #996600,
-        inset 0 0 20px rgba(255,128,0,0.05);
+      color: var(--amber); border: 3px solid var(--amber);
+      padding: 14px 20px; width: 100%; font-size: 11px;
+      letter-spacing: 2px; cursor: pointer; transition: all 0.15s;
+      box-shadow: 0 0 10px var(--amber), 0 0 30px rgba(255,128,0,0.4), 0 4px 0 #996600, inset 0 0 20px rgba(255,128,0,0.05);
       text-transform: uppercase;
       clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px);
     }
     .btn-generate:hover {
       background: linear-gradient(135deg, var(--amber-hot) 0%, var(--amber) 50%, var(--amber-hot) 100%);
       color: #000;
-      box-shadow:
-        0 0 20px var(--amber),
-        0 0 50px var(--amber-hot),
-        0 0 80px rgba(255,128,0,0.5),
-        0 2px 0 #664400,
-        inset 0 0 30px rgba(255,255,255,0.1);
+      box-shadow: 0 0 20px var(--amber), 0 0 50px var(--amber-hot), 0 0 80px rgba(255,128,0,0.5), 0 2px 0 #664400, inset 0 0 30px rgba(255,255,255,0.1);
       transform: translateY(-2px);
     }
-    .btn-generate:active {
-      transform: translateY(2px);
-      box-shadow: 0 0 8px var(--amber), 0 1px 0 #664400;
-    }
+    .btn-generate:active { transform: translateY(2px); box-shadow: 0 0 8px var(--amber), 0 1px 0 #664400; }
     .btn-generate::before {
       content: '';
-      position: absolute;
-      top: -50%;
-      left: -100%;
-      width: 60%;
-      height: 200%;
+      position: absolute; top: -50%; left: -100%;
+      width: 60%; height: 200%;
       background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
       transition: left 0.4s;
     }
-    .btn-generate:hover::before {
-      left: 150%;
+    .btn-generate:hover::before { left: 150%; }
+
+    .btn-secondary {
+      font-family: 'Share Tech Mono', monospace;
+      background: transparent; color: rgba(255,191,0,0.6);
+      border: 1px solid rgba(255,191,0,0.3);
+      padding: 8px 14px; font-size: 11px;
+      cursor: pointer; transition: all 0.2s; letter-spacing: 1px;
     }
+    .btn-secondary:hover { border-color: var(--amber); color: var(--amber); box-shadow: 0 0 8px rgba(255,191,0,0.3); }
+
     .result-card {
       position: relative;
       background: linear-gradient(135deg, #0a0600 0%, #150b00 40%, #0d0800 100%);
-      border: 2px solid var(--amber);
-      padding: 24px;
-      box-shadow:
-        0 0 10px var(--amber),
-        0 0 30px rgba(255,128,0,0.3),
-        inset 0 0 30px rgba(255,128,0,0.05);
-      min-height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 2px solid var(--amber); padding: 24px;
+      box-shadow: 0 0 10px var(--amber), 0 0 30px rgba(255,128,0,0.3), inset 0 0 30px rgba(255,128,0,0.05);
+      min-height: 120px; display: flex; align-items: center; justify-content: center;
     }
     .result-card.has-result {
       border-color: var(--neon-green);
-      box-shadow:
-        0 0 10px var(--neon-green),
-        0 0 30px rgba(57,255,20,0.25),
-        inset 0 0 30px rgba(57,255,20,0.04);
+      box-shadow: 0 0 10px var(--neon-green), 0 0 30px rgba(57,255,20,0.25), inset 0 0 30px rgba(57,255,20,0.04);
     }
-    .result-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      color: #888;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+    .result-title { font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 700; color: #888; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
     .result-game-name {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(14px, 3vw, 22px);
-      font-weight: 900;
+      font-size: clamp(14px, 3vw, 22px); font-weight: 900;
       color: var(--neon-green);
       text-shadow: 0 0 10px var(--neon-green), 0 0 30px rgba(57,255,20,0.4);
-      letter-spacing: 1px;
-      line-height: 1.3;
+      letter-spacing: 1px; line-height: 1.3;
       animation: bounce_in 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
     }
-    .pixel-sprite {
-      image-rendering: pixelated;
-      display: inline-block;
-    }
-    .stat-bar {
-      height: 6px;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      overflow: hidden;
-      position: relative;
-    }
-    .stat-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--amber-hot), var(--amber), #FFE566);
-      box-shadow: 0 0 6px var(--amber);
-      transition: width 0.6s ease;
-    }
-    .console-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 10px;
-      background: rgba(255,191,0,0.08);
-      border: 1px solid rgba(255,191,0,0.3);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: rgba(255,191,0,0.7);
-      letter-spacing: 1px;
-    }
-    .level-badge {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 9px;
-      padding: 4px 8px;
-      background: rgba(255,128,0,0.15);
-      border: 1px solid var(--amber-hot);
-      color: var(--amber-hot);
-      box-shadow: 0 0 8px rgba(255,128,0,0.3);
-    }
-    .flicker {
-      animation: flicker 4s infinite;
-    }
-    .hud-divider {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--amber), transparent);
-      opacity: 0.4;
-      margin: 0;
-    }
-    .select-wrapper {
-      position: relative;
-    }
-    .select-wrapper::after {
-      content: '▼';
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--amber);
-      font-size: 10px;
-      pointer-events: none;
-      font-family: 'Press Start 2P', cursive;
-    }
-    @keyframes roll_text {
-      0%   { transform: rotateX(0deg); opacity: 1; }
-      30%  { transform: rotateX(90deg); opacity: 0; }
-      60%  { transform: rotateX(-90deg); opacity: 0; }
-      100% { transform: rotateX(0deg); opacity: 1; }
-    }
-    .rolling {
-      animation: roll_text 0.15s ease-in-out infinite;
-    }
-    @keyframes result_enter {
-      0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
-      100% { clip-path: inset(0 0% 0 0); opacity: 1; }
-    }
-    .result-animate {
-      animation: result_enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
+    .stat-bar { height: 6px; background: #1a1a1a; border: 1px solid #333; overflow: hidden; position: relative; }
+    .stat-bar-fill { height: 100%; background: linear-gradient(90deg, var(--amber-hot), var(--amber), #FFE566); box-shadow: 0 0 6px var(--amber); transition: width 0.6s ease; }
+    .level-badge { font-family: 'Press Start 2P', cursive; font-size: 9px; padding: 4px 8px; background: rgba(255,128,0,0.15); border: 1px solid var(--amber-hot); color: var(--amber-hot); box-shadow: 0 0 8px rgba(255,128,0,0.3); }
+    .flicker { animation: flicker 4s infinite; }
+    .hud-divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--amber), transparent); opacity: 0.4; margin: 0; }
+    .select-wrapper { position: relative; }
+    .select-wrapper::after { content: '▼'; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--amber); font-size: 10px; pointer-events: none; font-family: 'Press Start 2P', cursive; }
+
+    @keyframes roll_text { 0% { transform: rotateX(0deg); opacity: 1; } 30% { transform: rotateX(90deg); opacity: 0; } 60% { transform: rotateX(-90deg); opacity: 0; } 100% { transform: rotateX(0deg); opacity: 1; } }
+    @keyframes result_enter { 0% { clip-path: inset(0 100% 0 0); opacity: 0; } 100% { clip-path: inset(0 0% 0 0); opacity: 1; } }
+    .result-animate { animation: result_enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
     @keyframes blink { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
     .dot1 { animation: blink 1s infinite 0s; }
     .dot2 { animation: blink 1s infinite 0.2s; }
     .dot3 { animation: blink 1s infinite 0.4s; }
-    .footer-link {
-      color: rgba(255,191,0,0.6);
-      text-decoration: none;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      transition: all 0.2s;
-    }
-    .footer-link:hover {
-      color: var(--amber);
-      text-shadow: 0 0 8px var(--amber);
-    }
+
+    .footer-link { color: rgba(255,191,0,0.6); text-decoration: none; font-family: 'Share Tech Mono', monospace; font-size: 11px; transition: all 0.2s; }
+    .footer-link:hover { color: var(--amber); text-shadow: 0 0 8px var(--amber); }
+
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0a0a0a; }
     ::-webkit-scrollbar-thumb { background: var(--amber-dim); border-radius: 0; }
     ::-webkit-scrollbar-thumb:hover { background: var(--amber); }
-    .hud-label {
+
+    .hud-label { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: rgba(255,191,0,0.6); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .hud-label::before { content: '▶'; font-size: 8px; color: var(--amber-hot); }
+
+    /* ─── Ad container — AdSense-friendly ─── */
+    .ad-slot {
+      width: 100%;
+      overflow: hidden;
+      background: transparent;
+      text-align: center;
+    }
+    .ad-slot-top {
+      /* Top leaderboard — renders AFTER the hero, not before content */
+      margin: 0 auto 16px auto;
+      max-width: 728px;
+    }
+    .ad-slot-mid {
+      margin: 24px auto;
+      max-width: 728px;
+    }
+    .ad-slot-bottom {
+      margin: 24px auto 0 auto;
+      max-width: 728px;
+    }
+
+    /* ─── Favorite list ─── */
+    .fav-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px;
+      background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.25);
+      color: rgba(0,255,255,0.8);
+      font-family: 'Share Tech Mono', monospace; font-size: 10px;
+      cursor: pointer; transition: all 0.15s;
+      max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .fav-chip:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: 0 0 6px rgba(0,255,255,0.3); }
+    .fav-chip .remove-btn { opacity: 0.4; font-size: 11px; flex-shrink: 0; }
+    .fav-chip:hover .remove-btn { opacity: 1; }
+
+    /* ─── Share button ─── */
+    .btn-share {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 11px;
-      color: rgba(255,191,0,0.6);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(57,255,20,0.08); color: var(--neon-green);
+      border: 1px solid rgba(57,255,20,0.3);
+      padding: 6px 14px; font-size: 11px;
+      cursor: pointer; transition: all 0.2s;
     }
-    .hud-label::before {
-      content: '▶';
-      font-size: 8px;
-      color: var(--amber-hot);
+    .btn-share:hover { background: rgba(57,255,20,0.15); border-color: var(--neon-green); box-shadow: 0 0 10px rgba(57,255,20,0.3); }
+
+    /* ─── Surprise mode toggle ─── */
+    .toggle-wrap { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+    .toggle { width: 36px; height: 18px; background: #1a1a1a; border: 1px solid rgba(255,191,0,0.3); position: relative; transition: all 0.2s; flex-shrink: 0; }
+    .toggle.on { background: rgba(255,191,0,0.15); border-color: var(--amber); box-shadow: 0 0 8px rgba(255,191,0,0.3); }
+    .toggle::after { content: ''; position: absolute; width: 12px; height: 12px; background: #555; top: 2px; left: 2px; transition: all 0.2s; }
+    .toggle.on::after { background: var(--amber); left: 20px; box-shadow: 0 0 6px var(--amber); }
+
+    /* ─── Toast ─── */
+    #toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: #111; border: 1px solid var(--neon-green); color: var(--neon-green);
+      font-family: 'Share Tech Mono', monospace; font-size: 12px;
+      padding: 10px 20px; z-index: 10000;
+      transition: transform 0.3s ease; pointer-events: none;
+      box-shadow: 0 0 12px rgba(57,255,20,0.4);
+      white-space: nowrap;
     }
+    #toast.show { transform: translateX(-50%) translateY(0); }
   </style>
 </head>
 <body class="pixel-bg">
+
   <!-- ═══ HEADER ═══ -->
   <header class="w-full border-b-2 border-amber-500 bg-black/90 backdrop-blur-sm sticky top-0 z-50"
           style="box-shadow: 0 2px 20px rgba(255,128,0,0.3);">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="https://zelhantv.com"
-         class="flex items-center gap-3 group"
-         style="text-decoration:none;">
+      <a href="https://zelhantv.com" class="flex items-center gap-3 group" style="text-decoration:none;">
         <div class="w-8 h-8 border-2 border-amber-500 flex items-center justify-center
                     group-hover:bg-amber-500 group-hover:text-black transition-all duration-200"
-             style="box-shadow: 0 0 8px rgba(255,191,0,0.4); font-size: 14px;">
-          ◀
-        </div>
-        <span class="font-pixel text-amber-400 text-xs glow-text-sm group-hover:text-white
-                     transition-colors duration-200 hidden sm:block">
-          zelhanTV
-        </span>
+             style="box-shadow: 0 0 8px rgba(255,191,0,0.4); font-size: 14px;">◀</div>
+        <span class="font-pixel text-amber-400 text-xs glow-text-sm group-hover:text-white transition-colors duration-200 hidden sm:block">zelhanTV</span>
       </a>
       <nav class="flex items-center gap-1 sm:gap-3">
-        <a href="https://zelhantv.com" class="footer-link text-amber-400 px-2 py-1 text-[10px]
-           hover:border-b border-amber-400">HOME</a>
-        <a href="https://zelhantv.com/blog" class="footer-link text-amber-400 px-2 py-1 text-[10px]
-           hover:border-b border-amber-400">BLOG</a>
-        <a href="https://trilyonaryo.com" class="footer-link text-amber-400 px-2 py-1 text-[10px]
-           hover:border-b border-amber-400 hidden sm:block">TRILYONARYO</a>
-        <a href="versions.html" class="footer-link text-amber-400 px-2 py-1 text-[10px]
-           hover:border-b border-amber-400">VERSIONS</a>
-        <span class="level-badge ml-1">v3.0</span>
+        <a href="https://zelhantv.com" class="footer-link text-amber-400 px-2 py-1 text-[10px] hover:border-b border-amber-400">HOME</a>
+        <a href="https://zelhantv.com/blog" class="footer-link text-amber-400 px-2 py-1 text-[10px] hover:border-b border-amber-400">BLOG</a>
+        <a href="https://trilyonaryo.com" class="footer-link text-amber-400 px-2 py-1 text-[10px] hover:border-b border-amber-400 hidden sm:block">TRILYONARYO</a>
+        <a href="versions.html" class="footer-link text-amber-400 px-2 py-1 text-[10px] hover:border-b border-amber-400">VERSIONS</a>
+        <span class="level-badge ml-1">v4.0</span>
       </nav>
     </div>
   </header>
 
-  <!-- ═══ HERO TITLE SECTION ═══ -->
+  <!-- ═══ HERO ═══ -->
   <section class="max-w-4xl mx-auto px-4 pt-10 pb-4 text-center">
     <div class="flex items-center gap-3 mb-6 justify-center opacity-40">
       <div class="h-px flex-1 max-w-16" style="background: linear-gradient(90deg, transparent, #FFBF00);"></div>
@@ -483,16 +305,12 @@
     </div>
     <div class="relative inline-block mb-2">
       <h1 class="font-pixel text-amber-400 leading-relaxed flicker"
-          style="font-size: clamp(12px, 3.5vw, 22px);
-                 text-shadow: 0 0 10px #FFBF00, 0 0 30px #FF8000, 0 0 60px rgba(255,128,0,0.4);
-                 letter-spacing: 2px;">
+          style="font-size: clamp(12px, 3.5vw, 22px); text-shadow: 0 0 10px #FFBF00, 0 0 30px #FF8000, 0 0 60px rgba(255,128,0,0.4); letter-spacing: 2px;">
         RANDOM GAME<br>
         <span style="color: #FF8000; font-size: 0.85em;">PICKER GENERATOR</span>
       </h1>
     </div>
-    <p class="font-pixel text-amber-600 text-[9px] mt-3 tracking-widest opacity-70">
-      — by ZELHAN —
-    </p>
+    <p class="font-pixel text-amber-600 text-[9px] mt-3 tracking-widest opacity-70">— by ZELHAN —</p>
     <div class="flex justify-center items-center gap-2 mt-6 opacity-50">
       <span class="text-amber-600 text-xs">◆</span>
       <div class="h-px w-24 bg-amber-700"></div>
@@ -502,24 +320,33 @@
     </div>
   </section>
 
-  <!-- ═══ MAIN GAME PICKER PANEL ═══ -->
+  <!-- ═══ AD SLOT — TOP (after hero, before tool) ═══ -->
+  <!-- This is the correct position: user sees the title first, then ad, then tool -->
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="ad-slot ad-slot-top">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2137593406454250"
+           data-ad-slot="2766048578" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN GAME PICKER ═══ -->
   <main class="max-w-2xl mx-auto px-4 pb-10">
+
+    <!-- HUD Status Bar -->
     <div class="flex items-center justify-between mb-4 px-1">
       <div class="flex items-center gap-2">
         <span class="font-pixel text-[8px] text-amber-700">PLAYER 1</span>
-        <div class="stat-bar w-20">
-          <div class="stat-bar-fill" style="width: 100%"></div>
-        </div>
+        <div class="stat-bar w-20"><div class="stat-bar-fill" style="width: 100%"></div></div>
       </div>
       <div class="font-pixel text-[8px] text-amber-600" id="roll-counter">ROLLS: 0</div>
       <div class="flex items-center gap-2">
-        <div class="stat-bar w-20">
-          <div class="stat-bar-fill" style="width: 77%"></div>
-        </div>
+        <div class="stat-bar w-20"><div class="stat-bar-fill" style="width: 77%"></div></div>
         <span class="font-pixel text-[8px] text-amber-700">LUCK</span>
       </div>
     </div>
 
+    <!-- Main Panel -->
     <div class="neon-box corner-box bg-black/60" style="border-radius: 0; padding: 28px 24px;">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
@@ -530,6 +357,7 @@
       </div>
       <hr class="hud-divider mb-6">
 
+      <!-- Platform -->
       <div class="mb-5">
         <div class="hud-label">PLATFORM_SELECT</div>
         <div class="select-wrapper">
@@ -540,7 +368,8 @@
         </div>
       </div>
 
-      <div class="mb-7">
+      <!-- Genre -->
+      <div class="mb-5">
         <div class="hud-label">GENRE_SELECT</div>
         <div class="select-wrapper">
           <select id="genre" class="hud-select"
@@ -550,10 +379,20 @@
         </div>
       </div>
 
+      <!-- Surprise Me Toggle -->
+      <div class="mb-7 flex items-center justify-between">
+        <label class="toggle-wrap" id="surprise-toggle-wrap">
+          <div class="toggle" id="surprise-toggle"></div>
+          <span class="font-mono text-[11px] text-amber-700 tracking-widest">SURPRISE MODE — ignore filters</span>
+        </label>
+      </div>
+
+      <!-- Generate Button -->
       <button id="generate" class="btn-generate mb-7">
         <span id="btn-text">⚡ ROLL THE DICE ⚡</span>
       </button>
 
+      <!-- Result -->
       <div id="result" class="result-card" style="border-radius: 0;">
         <div class="text-center">
           <p class="font-hud text-amber-700 text-xs tracking-widest" style="font-size: 10px;">
@@ -563,7 +402,14 @@
         </div>
       </div>
 
-      <div class="mt-4">
+      <!-- Result Actions — hidden until result shown -->
+      <div id="result-actions" class="mt-3 flex gap-3 justify-center hidden">
+        <button class="btn-share" id="btn-fav">★ SAVE TO FAVS</button>
+        <button class="btn-share" id="btn-share" style="color: rgba(255,191,0,0.7); background: rgba(255,191,0,0.06); border-color: rgba(255,191,0,0.25);">⎘ COPY RESULT</button>
+      </div>
+
+      <!-- Recent Rolls -->
+      <div class="mt-6">
         <div class="hud-label mb-2">RECENT ROLLS</div>
         <div id="history" class="flex flex-wrap gap-2 min-h-[28px]">
           <span class="text-amber-800 font-mono text-[10px]">— no rolls yet —</span>
@@ -571,8 +417,26 @@
       </div>
     </div>
 
+    <!-- ═══ FAVORITES PANEL ═══ -->
+    <div class="mt-6 neon-box-green bg-black/40 p-5" style="border-radius: 0;" id="favs-panel">
+      <div class="flex items-center justify-between mb-3">
+        <span class="font-pixel text-[9px]" style="color: var(--neon-green);">★ MY FAVORITES</span>
+        <button class="btn-secondary text-[10px]" id="clear-favs">CLEAR ALL</button>
+      </div>
+      <div id="favs-list" class="flex flex-wrap gap-2 min-h-[28px]">
+        <span class="text-amber-800 font-mono text-[10px]" id="favs-empty">— save games here —</span>
+      </div>
+    </div>
+
+    <!-- ═══ AD SLOT — MID (between panels, natural break) ═══ -->
+    <div class="ad-slot ad-slot-mid">
+      <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+           data-ad-client="ca-pub-2137593406454250" data-ad-slot="1452966901"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <!-- ═══ FEEDBACK PANEL ═══ -->
-    <div class="mt-6 neon-box-cyan bg-black/40 p-5" style="border-radius: 0;">
+    <div class="neon-box-cyan bg-black/40 p-5" style="border-radius: 0;">
       <div class="flex items-center gap-3 mb-4">
         <span class="font-pixel text-[9px]" style="color: var(--neon-cyan);">◈ SUBMIT FEEDBACK</span>
       </div>
@@ -616,9 +480,7 @@
         <div>
           <p class="font-pixel text-amber-700 text-[8px] mb-2 tracking-widest">MUSIC</p>
           <a href="https://open.spotify.com/artist/1HgCqz4lESpT3aAdTla5mi?si=l45eXB-kRGm_OEKAlNRheg"
-             class="footer-link block" target="_blank" rel="noopener">
-            ZELHAN Spotify ↗
-          </a>
+             class="footer-link block" target="_blank" rel="noopener">ZELHAN Spotify ↗</a>
         </div>
       </div>
       <hr class="hud-divider mb-4">
@@ -635,125 +497,144 @@
     </div>
   </footer>
 
-
+  <!-- ═══ TOAST ═══ -->
+  <div id="toast"></div>
 
   <script src="script.js"></script>
 
   <script>
-    // ─── Live clock ───
+    // ─── Clock ───
     function updateClock() {
       const now = new Date();
-      const h = String(now.getHours()).padStart(2,'0');
-      const m = String(now.getMinutes()).padStart(2,'0');
-      const s = String(now.getSeconds()).padStart(2,'0');
+      const pad = n => String(n).padStart(2,'0');
       const el = document.getElementById('clock');
-      if (el) el.textContent = `${h}:${m}:${s}`;
+      if (el) el.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
     }
     setInterval(updateClock, 1000);
     updateClock();
 
-    // ─── Dice Roll Sound (Web Audio API — no external files needed) ───
-    let audioCtx = null;
-
-    function getAudioContext() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      return audioCtx;
+    // ─── Toast ───
+    function showToast(msg, duration = 2000) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), duration);
     }
 
+    // ─── Surprise Mode ───
+    let surpriseMode = false;
+    const surpriseToggle = document.getElementById('surprise-toggle');
+    document.getElementById('surprise-toggle-wrap').addEventListener('click', () => {
+      surpriseMode = !surpriseMode;
+      surpriseToggle.classList.toggle('on', surpriseMode);
+    });
+
+    // ─── Favorites ───
+    const FAVS_KEY = 'zelhan_favs_v1';
+    let favs = [];
+    try { favs = JSON.parse(localStorage.getItem(FAVS_KEY)) || []; } catch(e) { favs = []; }
+
+    function saveFavs() { try { localStorage.setItem(FAVS_KEY, JSON.stringify(favs)); } catch(e) {} }
+
+    function renderFavs() {
+      const container = document.getElementById('favs-list');
+      const empty = document.getElementById('favs-empty');
+      if (!container) return;
+      // Remove old chips
+      [...container.querySelectorAll('.fav-chip')].forEach(c => c.remove());
+      if (favs.length === 0) {
+        if (empty) empty.style.display = '';
+        return;
+      }
+      if (empty) empty.style.display = 'none';
+      favs.forEach((name, i) => {
+        const chip = document.createElement('span');
+        chip.className = 'fav-chip';
+        chip.title = name;
+        chip.innerHTML = `<span style="overflow:hidden;text-overflow:ellipsis;">${name.length > 20 ? name.slice(0,18)+'…' : name}</span><span class="remove-btn" data-idx="${i}">✕</span>`;
+        chip.querySelector('.remove-btn').addEventListener('click', (e) => {
+          e.stopPropagation();
+          favs.splice(i, 1);
+          saveFavs(); renderFavs();
+        });
+        container.appendChild(chip);
+      });
+    }
+    renderFavs();
+
+    document.getElementById('clear-favs').addEventListener('click', () => {
+      favs = []; saveFavs(); renderFavs();
+      showToast('FAVORITES CLEARED');
+    });
+
+    // Save to favs button
+    let currentGame = null;
+    document.getElementById('btn-fav').addEventListener('click', () => {
+      if (!currentGame) return;
+      if (favs.includes(currentGame)) { showToast('ALREADY IN FAVS ★'); return; }
+      favs.unshift(currentGame);
+      if (favs.length > 20) favs.pop();
+      saveFavs(); renderFavs();
+      showToast('SAVED TO FAVORITES ★');
+    });
+
+    // Copy result button
+    document.getElementById('btn-share').addEventListener('click', () => {
+      if (!currentGame) return;
+      const text = `🎮 Playing: ${currentGame} — picked by zelhan.com game picker`;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => showToast('COPIED TO CLIPBOARD ⎘'));
+      } else {
+        showToast('CLIPBOARD NOT AVAILABLE');
+      }
+    });
+
+    // ─── Sound ───
+    let audioCtx = null;
+    function getAudioContext() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
     function playDiceRollSound() {
       const ctx = getAudioContext();
-
-      // Resume context if suspended (browser autoplay policy)
       if (ctx.state === 'suspended') ctx.resume();
-
       const now = ctx.currentTime;
-
-      // ── Phase 1: Rapid rattling ticks (dice tumbling) ──
-      const tickCount = 12;
-      for (let i = 0; i < tickCount; i++) {
+      for (let i = 0; i < 12; i++) {
         const tickTime = now + i * 0.055;
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         const filter = ctx.createBiquadFilter();
-
-        filter.type = 'bandpass';
-        filter.frequency.value = 800 + Math.random() * 1200;
-        filter.Q.value = 2;
-
-        // Pitch descends slightly as dice settle
+        filter.type = 'bandpass'; filter.frequency.value = 800 + Math.random() * 1200; filter.Q.value = 2;
         osc.type = 'square';
         osc.frequency.setValueAtTime(180 + Math.random() * 120 - i * 4, tickTime);
-
-        // Each tick fades out fast
         gain.gain.setValueAtTime(0, tickTime);
         gain.gain.linearRampToValueAtTime(0.18 - i * 0.008, tickTime + 0.006);
         gain.gain.exponentialRampToValueAtTime(0.001, tickTime + 0.045);
-
-        osc.connect(filter);
-        filter.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start(tickTime);
-        osc.stop(tickTime + 0.05);
+        osc.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
+        osc.start(tickTime); osc.stop(tickTime + 0.05);
       }
-
-      // ── Phase 2: Noise burst (dice hitting surface) ──
       const noiseBuffer = ctx.createBuffer(1, ctx.sampleRate * 0.12, ctx.sampleRate);
       const data = noiseBuffer.getChannelData(0);
-      for (let i = 0; i < data.length; i++) {
-        data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
-      }
-      const noiseSource = ctx.createBufferSource();
-      noiseSource.buffer = noiseBuffer;
-
-      const noiseFilter = ctx.createBiquadFilter();
-      noiseFilter.type = 'bandpass';
-      noiseFilter.frequency.value = 600;
-      noiseFilter.Q.value = 0.8;
-
-      const noiseGain = ctx.createGain();
-      noiseGain.gain.setValueAtTime(0.25, now + 0.55);
-      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.67);
-
-      noiseSource.connect(noiseFilter);
-      noiseFilter.connect(noiseGain);
-      noiseGain.connect(ctx.destination);
-      noiseSource.start(now + 0.55);
-
-      // ── Phase 3: Final landing thud ──
-      const thudOsc = ctx.createOscillator();
-      const thudGain = ctx.createGain();
-      thudOsc.type = 'sine';
-      thudOsc.frequency.setValueAtTime(90, now + 0.62);
-      thudOsc.frequency.exponentialRampToValueAtTime(40, now + 0.72);
-      thudGain.gain.setValueAtTime(0.35, now + 0.62);
-      thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.72);
-      thudOsc.connect(thudGain);
-      thudGain.connect(ctx.destination);
-      thudOsc.start(now + 0.62);
-      thudOsc.stop(now + 0.73);
-
-      // ── Phase 4: Arcade "result" chime ──
-      const chimeNotes = [523.25, 659.25, 783.99]; // C5, E5, G5
-      chimeNotes.forEach((freq, i) => {
-        const chimeOsc = ctx.createOscillator();
-        const chimeGain = ctx.createGain();
-        chimeOsc.type = 'triangle';
-        chimeOsc.frequency.value = freq;
-        const chimeStart = now + 0.78 + i * 0.1;
-        chimeGain.gain.setValueAtTime(0, chimeStart);
-        chimeGain.gain.linearRampToValueAtTime(0.2, chimeStart + 0.02);
-        chimeGain.gain.exponentialRampToValueAtTime(0.001, chimeStart + 0.22);
-        chimeOsc.connect(chimeGain);
-        chimeGain.connect(ctx.destination);
-        chimeOsc.start(chimeStart);
-        chimeOsc.stop(chimeStart + 0.25);
+      for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+      const noiseSource = ctx.createBufferSource(); noiseSource.buffer = noiseBuffer;
+      const noiseFilter = ctx.createBiquadFilter(); noiseFilter.type = 'bandpass'; noiseFilter.frequency.value = 600; noiseFilter.Q.value = 0.8;
+      const noiseGain = ctx.createGain(); noiseGain.gain.setValueAtTime(0.25, now + 0.55); noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.67);
+      noiseSource.connect(noiseFilter); noiseFilter.connect(noiseGain); noiseGain.connect(ctx.destination); noiseSource.start(now + 0.55);
+      const thudOsc = ctx.createOscillator(); const thudGain = ctx.createGain();
+      thudOsc.type = 'sine'; thudOsc.frequency.setValueAtTime(90, now + 0.62); thudOsc.frequency.exponentialRampToValueAtTime(40, now + 0.72);
+      thudGain.gain.setValueAtTime(0.35, now + 0.62); thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.72);
+      thudOsc.connect(thudGain); thudGain.connect(ctx.destination); thudOsc.start(now + 0.62); thudOsc.stop(now + 0.73);
+      [523.25, 659.25, 783.99].forEach((freq, i) => {
+        const co = ctx.createOscillator(); const cg = ctx.createGain();
+        co.type = 'triangle'; co.frequency.value = freq;
+        const cs = now + 0.78 + i * 0.1;
+        cg.gain.setValueAtTime(0, cs); cg.gain.linearRampToValueAtTime(0.2, cs + 0.02); cg.gain.exponentialRampToValueAtTime(0.001, cs + 0.22);
+        co.connect(cg); cg.connect(ctx.destination); co.start(cs); co.stop(cs + 0.25);
       });
     }
 
-    // ─── Hook sound to the generate button ───
+    // ─── Hook sound + surprise mode into generate button ───
+    // script.js handles the main generate logic; we intercept here for extras
     document.addEventListener('DOMContentLoaded', function () {
       const btn = document.getElementById('generate');
       if (btn) {
@@ -761,7 +642,78 @@
           playDiceRollSound();
         });
       }
+
+      // Patch showResult to expose currentGame and show actions
+      const origShowResult = window.showResult;
+      if (typeof origShowResult === 'function') {
+        window.showResult = function(gameName) {
+          currentGame = gameName;
+          origShowResult(gameName);
+          document.getElementById('result-actions').classList.remove('hidden');
+        };
+      }
     });
+
+    // Surprise mode: pick any game from any platform/genre when toggled
+    // We hook into the generate click BEFORE script.js fires
+    // by overriding pickRandom at the window level after script.js loads
+    window.__surprisePick = null;
+    document.getElementById('generate').addEventListener('click', function() {
+      if (!surpriseMode) { window.__surprisePick = null; return; }
+      // Collect all games across all platforms/genres
+      // script.js exposes nothing directly; we'll patch via DOMContentLoaded after load
+    }, true); // capture phase — fires before script.js listener
   </script>
+
+  <!-- Surprise mode full implementation — runs after script.js is loaded -->
+  <script>
+    // We patch the game logic after script.js has initialized
+    // script.js uses an IIFE so we can't easily intercept gamesData
+    // Instead: when surprise mode is on, we pick a random game
+    // by temporarily overriding the selects right before the roll
+
+    (function() {
+      let gamesDataGlobal = null;
+
+      // Intercept fetch to capture games data
+      const origFetch = window.fetch;
+      window.fetch = async function(...args) {
+        const res = await origFetch.apply(this, args);
+        const url = String(args[0]);
+        if (url.includes('games')) {
+          const clone = res.clone();
+          clone.json().then(d => {
+            if (!gamesDataGlobal) gamesDataGlobal = d;
+            else {
+              // merge extra
+              for (const k of Object.keys(d)) {
+                if (!gamesDataGlobal[k]) gamesDataGlobal[k] = d[k];
+              }
+            }
+          }).catch(() => {});
+        }
+        return res;
+      };
+
+      document.getElementById('generate').addEventListener('click', function() {
+        if (!surpriseMode || !gamesDataGlobal) return;
+        // pick random platform, genre, auto-trigger after selects update
+        const platforms = Object.keys(gamesDataGlobal);
+        const platform = platforms[Math.floor(Math.random() * platforms.length)];
+        const genres = Object.keys(gamesDataGlobal[platform] || {});
+        const genre = genres[Math.floor(Math.random() * genres.length)];
+
+        const cs = document.getElementById('console');
+        const gs = document.getElementById('genre');
+        if (cs && gs) {
+          cs.value = platform;
+          cs.dispatchEvent(new Event('change'));
+          // Wait for genre select to update
+          setTimeout(() => { gs.value = genre; }, 50);
+        }
+      }, true); // capture — fires before script.js listener
+    })();
+  </script>
+
 </body>
 </html>
